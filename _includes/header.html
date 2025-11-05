@@ -1,0 +1,56 @@
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/projects/" class="nav-link">Projects</a>
+    <a href="/skills/" class="nav-link">Skills</a>
+    <a href="/resume/" class="nav-link">Resume</a>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <span class="theme-icon">🌙</span>
+      <span class="theme-text">Dark</span>
+    </button>
+  </nav>
+</header>
+
+<script>
+// Theme toggle functionality
+function toggleTheme() {
+  const html = document.documentElement;
+  const themeToggle = document.querySelector('.theme-toggle');
+  const themeIcon = themeToggle.querySelector('.theme-icon');
+  const themeText = themeToggle.querySelector('.theme-text');
+  
+  if (html.getAttribute('data-theme') === 'light') {
+    // Switch to dark theme (Palenight)
+    html.removeAttribute('data-theme');
+    themeIcon.textContent = '🌙';
+    themeText.textContent = 'Dark';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    // Switch to light theme (Atom One Light)
+    html.setAttribute('data-theme', 'light');
+    themeIcon.textContent = '☀️';
+    themeText.textContent = 'Light';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Load saved theme preference
+document.addEventListener('DOMContentLoaded', function() {
+  const savedTheme = localStorage.getItem('theme');
+  const html = document.documentElement;
+  const themeToggle = document.querySelector('.theme-toggle');
+  const themeIcon = themeToggle.querySelector('.theme-icon');
+  const themeText = themeToggle.querySelector('.theme-text');
+  
+  if (savedTheme === 'light') {
+    html.setAttribute('data-theme', 'light');
+    themeIcon.textContent = '☀️';
+    themeText.textContent = 'Light';
+  } else {
+    // Default to dark theme
+    html.removeAttribute('data-theme');
+    themeIcon.textContent = '🌙';
+    themeText.textContent = 'Dark';
+  }
+});
+</script>
