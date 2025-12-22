@@ -1,4 +1,4 @@
-name: Deploy Maintenance Site
+name: Deploy Saga Data Site
 
 permissions:
   contents: read
@@ -22,40 +22,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Verify maintenance page
-        run: |
-          echo "Checking for maintenance entrypoint..."
-          if [ ! -f index.html ]; then
-            echo "ERROR: index.html not found in repository root."
-            ls -la
-            exit 1
-          fi
-          echo "index.html found."
-          
-          if [ ! -f SDt.jpeg ]; then
-            echo "WARNING: SDt.jpeg logo not found."
-          else
-            echo "Logo file found."
-          fi
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Create build directory
-        run: |
-          mkdir -p _site
-          cp index.html _site/
-          cp 404.html _site/
-          cp CNAME _site/
-          if [ -f SDt.jpeg ]; then
-            cp SDt.jpeg _site/
-          fi
-          cp sitemap.xml _site/
-          echo "Build directory contents:"
-          ls -la _site/
-
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
 
   deploy:
     environment:
@@ -66,4 +40,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v4

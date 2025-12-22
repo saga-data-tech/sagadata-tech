@@ -1,0 +1,223 @@
+/* =========================================
+   1. Theme Variables
+   ========================================= */
+:root {
+    /* DEFAULT: Warm & Academic (Anthropic-inspired) */
+    --bg-color: #F0EFEA;      /* Carrara */
+    --text-color: #141413;    /* Cod Gray */
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Merriweather', serif;
+    --accent-color: #CC785C;  /* Antique Brass */
+    --secondary-accent: #788c5d; /* Muted Green */
+    --card-bg: rgba(255, 255, 255, 0.4);
+    --border-color: rgba(20, 20, 19, 0.1);
+    
+    /* Decoration Params */
+    --noise-opacity: 0.05;
+    --shape-radius: 50%;
+    --grid-display: none;
+}
+
+[data-theme="cool-industrial"] {
+    /* Cool & Industrial (OctaiPipe-inspired) */
+    --bg-color: #F5F7FA;      /* Light Cool Grey */
+    --text-color: #0F172A;    /* Slate 900 */
+    --heading-font: 'Space Grotesk', sans-serif;
+    --body-font: 'Inter', sans-serif;
+    --accent-color: #0EA5E9;  /* Sky Blue */
+    --secondary-accent: #10B981; /* Emerald */
+    --card-bg: #FFFFFF;
+    --border-color: rgba(15, 23, 42, 0.1);
+
+    /* Decoration Params */
+    --noise-opacity: 0;
+    --shape-radius: 4px;
+    --grid-display: block;
+}
+
+/* =========================================
+   2. Base Reset & Layout
+   ========================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.4s ease, color 0.2s ease, border-color 0.3s ease; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Noise Texture for Warm Theme */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+    opacity: var(--noise-opacity);
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+/* Grid Background for Cool Theme */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    display: var(--grid-display);
+    pointer-events: none;
+    z-index: -2;
+}
+
+h1, h2, h3 { font-family: var(--heading-font); color: var(--text-color); font-weight: normal; }
+a { color: inherit; text-decoration: none; }
+
+/* =========================================
+   3. Components
+   ========================================= */
+
+/* Header */
+.site-header {
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.logo { font-family: var(--heading-font); font-size: 1.5rem; font-weight: bold; }
+
+/* Theme Toggle */
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: var(--body-font);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.theme-btn:hover { background: rgba(0,0,0,0.05); }
+
+/* Hero */
+.hero {
+    padding: 6rem 5%;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 70vh;
+}
+.overline { 
+    display: block; 
+    font-size: 0.85rem; 
+    letter-spacing: 0.05em; 
+    margin-bottom: 1rem; 
+    text-transform: uppercase; 
+    color: var(--accent-color);
+}
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+.hero .lead {
+    font-size: 1.25rem;
+    max-width: 500px;
+    opacity: 0.9;
+}
+
+/* Hero Visual - Abstract Shapes */
+.visual-element {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-color);
+    border-radius: var(--shape-radius);
+    opacity: 0.8;
+    filter: blur(40px);
+    margin: 0 auto;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+[data-theme="cool-industrial"] .visual-element {
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
+    filter: blur(2px);
+    /* Techy polygon clip */
+    clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%); 
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+}
+
+/* Services */
+.services {
+    padding: 6rem 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+.service-card {
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Slightly rounded always */
+}
+[data-theme="cool-industrial"] .service-card {
+    border-left: 4px solid var(--accent-color);
+    border-top: none; border-right: none; border-bottom: none;
+    border-radius: 0;
+    background: #fffafa; /* Very subtle tint */
+}
+.service-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Philosophy */
+.philosophy {
+    padding: 6rem 5%;
+    background-color: var(--border-color); /* Subtle contrast */
+    text-align: center;
+}
+.philosophy .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.philosophy h3 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+.philosophy p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--heading-font); /* Use display font for "Quote" feel */
+}
+
+/* Footer */
+footer {
+    padding: 3rem 5%;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding: 4rem 5%; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero .lead { margin: 0 auto; }
+}

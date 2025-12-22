@@ -1,36 +1,84 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="warm-academic">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Saga Data — Site Under Maintenance</title>
-  <meta name="robots" content="noindex,nofollow" />
-  <style>
-    :root{ --bg:#0b0b0b; --fg:#e6e6e6; --muted:#9aa0a6; --accent:#ff8c4b; }
-    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
-    body{background:var(--bg);color:var(--fg);display:flex;align-items:center;justify-content:center;padding:24px;}
-    .card{max-width:760px;width:100%;text-align:center;padding:36px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(0,0,0,0.6);}
-    img.logo{width:80px;height:80px;object-fit:cover;border-radius:10px;margin-bottom:18px;}
-    h1{margin:0 0 8px;font-size:24px;}
-    p.lead{margin:0 0 18px;color:var(--muted);}
-    a.button{display:inline-block;padding:10px 18px;border-radius:8px;background:var(--accent);color:#111;text-decoration:none;font-weight:600;}
-    footer{margin-top:20px;color:var(--muted);font-size:13px;}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saga Data</title>
+    <meta name="description" content="Saga Data LLP - A data and technology services organization.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Warm/Academic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Cool/Industrial Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <main class="card" role="main" aria-labelledby="title">
-    <img src="./SDt.jpeg" alt="Saga Data logo" class="logo" />
-    <h1 id="title">Saga Data</h1>
-    <p class="lead">sagadata.tech — Site Under Maintenance</p>
-    <p>We're working to bring the new site online. Please check back soon.</p>
-    <p style="margin-top:18px">
-      <a class="button" href="https://sagadata.tech" target="_blank" rel="noopener">Visit sagadata.tech</a>
-    </p>
-    <footer>&copy; <span id="yr"></span> Saga Data</footer>
-  </main>
 
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+    <header class="site-header">
+        <div class="logo">Saga Data.</div>
+        <nav>
+            <button id="theme-toggle" class="theme-btn" aria-label="Switch Theme">
+                <span class="theme-icon"></span>
+                <span class="theme-label">Switch Vibe</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="overline">Est. 2024</span>
+                <h1>Engineering Intelligence from Chaos.</h1>
+                <p class="lead">We architect data systems that transform raw information into decision-grade assets.</p>
+            </div>
+            <div class="hero-visual">
+                <!-- CSS Patterns/Shapes go here -->
+                <div class="visual-element"></div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="service-card">
+                <h2>Data Engineering</h2>
+                <p>Robust pipelines and scalable architectures. We build the bedrock for reliable analytics, ensuring data integrity at every stage of the lifecycle.</p>
+            </div>
+            <div class="service-card">
+                <h2>AI Systems</h2>
+                <p>Deploying production-grade machine learning models. We move beyond notebooks to reliable, monitored, and efficient AI infrastructure.</p>
+            </div>
+            <div class="service-card">
+                <h2>Strategy</h2>
+                <p>Technical roadmapping for the data-driven enterprise. aligning technology investments with measurable business outcomes.</p>
+            </div>
+        </section>
+
+        <section class="philosophy">
+            <div class="content-wrapper">
+                <h3>Our Methodology</h3>
+                <p>At Saga Data, we believe that technology is a craft. Whether we are designing a distributed system or fine-tuning a neural network, we approach every problem with a blend of academic rigor and industrial pragmatism.</p>
+                <p>We do not just ship code; we deliver durable systems designed to withstand the entropy of the real world.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <a href="mailto:hello@sagadata.tech">hello@sagadata.tech</a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> Saga Data LLP. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
