@@ -4,22 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saga Data</title>
-    <meta name="description" content="Saga Data LLP - A data and technology services organization.">
+    <title>Services | Saga Data</title>
+    <meta name="description" content="Our Services - Data Engineering, AI Systems, and Strategy.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Warm/Academic Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:wght@400;600;700&display=swap"
         rel="stylesheet">
-    <!-- Cool/Industrial Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .page-header {
+            padding: 6rem 5% 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail {
+            padding: 4rem 5%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .service-detail:last-child {
+            border-bottom: none;
+        }
+
+        .service-detail h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .service-detail p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,8 +57,8 @@
     <header class="site-header">
         <a href="index.html" class="logo">SD.t</a>
         <nav style="display: flex; gap: 1.5rem; align-items: center;">
-            <a href="index.html" class="active">Home</a>
-            <a href="services.html">Services</a>
+            <a href="index.html">Home</a>
+            <a href="services.html" class="active">Services</a>
             <a href="resources.html">Resources</a>
             <a href="news.html">News</a>
             <a href="about.html">About</a>
@@ -36,7 +66,6 @@
 
             <div style="display: flex; gap: 0.5rem; margin-left: 1rem;">
                 <button id="theme-toggle" class="theme-btn" aria-label="Switch Theme">
-                    <!-- Sun Icon (Default/Warm) -->
                     <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" style="display: block;">
@@ -50,7 +79,6 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-                    <!-- Snowflake Icon (Cool) - Hidden by default -->
                     <svg class="theme-icon-snow" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" style="display: none;">
@@ -70,45 +98,48 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <span class="overline">Est. 2024</span>
-                <h1>Engineering Intelligence from Chaos.</h1>
-                <p class="lead">We architect data systems that transform raw information into decision-grade assets.</p>
-            </div>
-            <div class="hero-visual">
-                <!-- CSS Patterns/Shapes go here -->
-                <div class="visual-element"></div>
-            </div>
+        <section class="page-header">
+            <span class="overline">Our Expertise</span>
+            <h1>Capabilities</h1>
         </section>
 
-        <section class="services">
-            <div class="service-card">
-                <h2>Data Engineering</h2>
-                <p>Robust pipelines and scalable architectures. We build the bedrock for reliable analytics, ensuring
-                    data integrity at every stage of the lifecycle.</p>
-            </div>
-            <div class="service-card">
-                <h2>AI Systems</h2>
-                <p>Deploying production-grade machine learning models. We move beyond notebooks to reliable, monitored,
-                    and efficient AI infrastructure.</p>
-            </div>
-            <div class="service-card">
-                <h2>Strategy</h2>
-                <p>Technical roadmapping for the data-driven enterprise. aligning technology investments with measurable
-                    business outcomes.</p>
-            </div>
+        <section class="service-detail">
+            <h2>Data Engineering</h2>
+            <p>Data is only as valuable as the system that delivers it. We build robust, scalable pipelines that ensure
+                your data is accurate, timely, and accessible.</p>
+            <p>Our focus includes:</p>
+            <ul style="list-style-position: inside; margin-left: 1rem;">
+                <li>Batch and Streaming Architectures</li>
+                <li>Data Lakehouse Implementation</li>
+                <li>ELT/ETL Optimization</li>
+                <li>Data Quality and Governance Frameworks</li>
+            </ul>
         </section>
 
-        <section class="philosophy">
-            <div class="content-wrapper">
-                <h3>Our Methodology</h3>
-                <p>At Saga Data, we believe that technology is a craft. Whether we are designing a distributed system or
-                    fine-tuning a neural network, we approach every problem with a blend of academic rigor and
-                    industrial pragmatism.</p>
-                <p>We do not just ship code; we deliver durable systems designed to withstand the entropy of the real
-                    world.</p>
-            </div>
+        <section class="service-detail">
+            <h2>AI Systems</h2>
+            <p>Moving AI from a Jupyter notebook to a production environment is a quantum leap. We bridge the gap
+                between experimentation and industrialization.</p>
+            <p>We specialize in:</p>
+            <ul style="list-style-position: inside; margin-left: 1rem;">
+                <li>MLOps and Model Lifecycle Management</li>
+                <li>Inference API Development</li>
+                <li>Model Monitoring and Observability</li>
+                <li>Custom Natural Language Processing (NLP) Solutions</li>
+            </ul>
+        </section>
+
+        <section class="service-detail">
+            <h2>Strategic Consulting</h2>
+            <p>Technology without strategy is just expense. We help you navigate the complex landscape of data tools and
+                architectures to find the best fit for your business goals.</p>
+            <p>Services include:</p>
+            <ul style="list-style-position: inside; margin-left: 1rem;">
+                <li>Technology Assessment and Roadmap</li>
+                <li>Build vs. Buy Analysis</li>
+                <li>Team Training and Upskilling</li>
+                <li>Architecture Review</li>
+            </ul>
         </section>
     </main>
 

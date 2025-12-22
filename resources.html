@@ -4,22 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saga Data</title>
-    <meta name="description" content="Saga Data LLP - A data and technology services organization.">
+    <title>Resources | Saga Data</title>
+    <meta name="description" content="Resources, whitepapers, and guides from Saga Data.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Warm/Academic Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:wght@400;600;700&display=swap"
         rel="stylesheet">
-    <!-- Cool/Industrial Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .page-header {
+            padding: 6rem 5% 3rem;
+            text-align: center;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 5% 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resource-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .resource-type {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .resource-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card p {
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+
+        .resource-link {
+            font-weight: bold;
+            color: var(--text-color);
+            border-bottom: 1px solid var(--accent-color);
+        }
+    </style>
 </head>
 
 <body>
@@ -27,16 +78,15 @@
     <header class="site-header">
         <a href="index.html" class="logo">SD.t</a>
         <nav style="display: flex; gap: 1.5rem; align-items: center;">
-            <a href="index.html" class="active">Home</a>
+            <a href="index.html">Home</a>
             <a href="services.html">Services</a>
-            <a href="resources.html">Resources</a>
+            <a href="resources.html" class="active">Resources</a>
             <a href="news.html">News</a>
             <a href="about.html">About</a>
             <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
 
             <div style="display: flex; gap: 0.5rem; margin-left: 1rem;">
                 <button id="theme-toggle" class="theme-btn" aria-label="Switch Theme">
-                    <!-- Sun Icon (Default/Warm) -->
                     <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" style="display: block;">
@@ -50,7 +100,6 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-                    <!-- Snowflake Icon (Cool) - Hidden by default -->
                     <svg class="theme-icon-snow" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" style="display: none;">
@@ -70,44 +119,40 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <span class="overline">Est. 2024</span>
-                <h1>Engineering Intelligence from Chaos.</h1>
-                <p class="lead">We architect data systems that transform raw information into decision-grade assets.</p>
-            </div>
-            <div class="hero-visual">
-                <!-- CSS Patterns/Shapes go here -->
-                <div class="visual-element"></div>
-            </div>
+        <section class="page-header">
+            <span class="overline">Knowledge Base</span>
+            <h1>Resources</h1>
         </section>
 
-        <section class="services">
-            <div class="service-card">
-                <h2>Data Engineering</h2>
-                <p>Robust pipelines and scalable architectures. We build the bedrock for reliable analytics, ensuring
-                    data integrity at every stage of the lifecycle.</p>
+        <section class="resources-grid">
+            <div class="resource-card">
+                <span class="resource-type">Whitepaper</span>
+                <h3>The Modern Data Stack in 2025</h3>
+                <p>An in-depth analysis of how data architectures are evolving with the rise of AI and real-time
+                    processing.</p>
+                <a href="#" class="resource-link">Download PDF</a>
             </div>
-            <div class="service-card">
-                <h2>AI Systems</h2>
-                <p>Deploying production-grade machine learning models. We move beyond notebooks to reliable, monitored,
-                    and efficient AI infrastructure.</p>
-            </div>
-            <div class="service-card">
-                <h2>Strategy</h2>
-                <p>Technical roadmapping for the data-driven enterprise. aligning technology investments with measurable
-                    business outcomes.</p>
-            </div>
-        </section>
 
-        <section class="philosophy">
-            <div class="content-wrapper">
-                <h3>Our Methodology</h3>
-                <p>At Saga Data, we believe that technology is a craft. Whether we are designing a distributed system or
-                    fine-tuning a neural network, we approach every problem with a blend of academic rigor and
-                    industrial pragmatism.</p>
-                <p>We do not just ship code; we deliver durable systems designed to withstand the entropy of the real
-                    world.</p>
+            <div class="resource-card">
+                <span class="resource-type">Guide</span>
+                <h3>Migrating to Lakehouse Architecture</h3>
+                <p>A practical step-by-step guide for engineering teams looking to unify their data warehouses and
+                    lakes.</p>
+                <a href="#" class="resource-link">Read Guide</a>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-type">Case Study</span>
+                <h3>Scaling Inference for FinTech</h3>
+                <p>How we helped a leading FinTech startup reduce latency by 40% while handling 10x traffic.</p>
+                <a href="#" class="resource-link">Read Case Study</a>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-type">Tool</span>
+                <h3>Data Quality Checklist</h3>
+                <p>Our internal checklist for ensuring data integrity before production deployment.</p>
+                <a href="#" class="resource-link">View Checklist</a>
             </div>
         </section>
     </main>

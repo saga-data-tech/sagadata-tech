@@ -4,22 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saga Data</title>
-    <meta name="description" content="Saga Data LLP - A data and technology services organization.">
+    <title>News | Saga Data</title>
+    <meta name="description" content="Latest news, updates, and thoughts from the Saga Data team.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Warm/Academic Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:wght@400;600;700&display=swap"
         rel="stylesheet">
-    <!-- Cool/Industrial Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .news-header {
+            padding: 6rem 5% 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .site-header {
+            margin-bottom: 0;
+        }
+
+        .news-list {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 5% 6rem;
+        }
+
+        .news-item {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            align-items: baseline;
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            font-family: var(--body-font);
+        }
+
+        .news-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-content h2 a {
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .news-content h2 a:hover {
+            color: var(--accent-color);
+        }
+
+        .news-excerpt {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            max-width: 600px;
+        }
+
+        @media (max-width: 600px) {
+            .news-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -27,16 +85,15 @@
     <header class="site-header">
         <a href="index.html" class="logo">SD.t</a>
         <nav style="display: flex; gap: 1.5rem; align-items: center;">
-            <a href="index.html" class="active">Home</a>
+            <a href="index.html">Home</a>
             <a href="services.html">Services</a>
             <a href="resources.html">Resources</a>
-            <a href="news.html">News</a>
+            <a href="news.html" class="active">News</a>
             <a href="about.html">About</a>
             <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
 
             <div style="display: flex; gap: 0.5rem; margin-left: 1rem;">
                 <button id="theme-toggle" class="theme-btn" aria-label="Switch Theme">
-                    <!-- Sun Icon (Default/Warm) -->
                     <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" style="display: block;">
@@ -50,7 +107,6 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-                    <!-- Snowflake Icon (Cool) - Hidden by default -->
                     <svg class="theme-icon-snow" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" style="display: none;">
@@ -70,45 +126,46 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <span class="overline">Est. 2024</span>
-                <h1>Engineering Intelligence from Chaos.</h1>
-                <p class="lead">We architect data systems that transform raw information into decision-grade assets.</p>
-            </div>
-            <div class="hero-visual">
-                <!-- CSS Patterns/Shapes go here -->
-                <div class="visual-element"></div>
-            </div>
+        <section class="news-header">
+            <h1>News</h1>
         </section>
 
-        <section class="services">
-            <div class="service-card">
-                <h2>Data Engineering</h2>
-                <p>Robust pipelines and scalable architectures. We build the bedrock for reliable analytics, ensuring
-                    data integrity at every stage of the lifecycle.</p>
-            </div>
-            <div class="service-card">
-                <h2>AI Systems</h2>
-                <p>Deploying production-grade machine learning models. We move beyond notebooks to reliable, monitored,
-                    and efficient AI infrastructure.</p>
-            </div>
-            <div class="service-card">
-                <h2>Strategy</h2>
-                <p>Technical roadmapping for the data-driven enterprise. aligning technology investments with measurable
-                    business outcomes.</p>
-            </div>
-        </section>
+        <section class="news-list">
+            <article class="news-item">
+                <div class="news-date">Oct 24, 2024</div>
+                <div class="news-content">
+                    <h2><a href="#">Saga Data Announces Series A Funding</a></h2>
+                    <p class="news-excerpt">We are thrilled to announce a $15M investment led by Future Ventures to
+                        accelerate our mission of engineering intelligence.</p>
+                </div>
+            </article>
 
-        <section class="philosophy">
-            <div class="content-wrapper">
-                <h3>Our Methodology</h3>
-                <p>At Saga Data, we believe that technology is a craft. Whether we are designing a distributed system or
-                    fine-tuning a neural network, we approach every problem with a blend of academic rigor and
-                    industrial pragmatism.</p>
-                <p>We do not just ship code; we deliver durable systems designed to withstand the entropy of the real
-                    world.</p>
-            </div>
+            <article class="news-item">
+                <div class="news-date">Sep 12, 2024</div>
+                <div class="news-content">
+                    <h2><a href="#">Introducing the New Data Governance Framework</a></h2>
+                    <p class="news-excerpt">A comprehensive open-source toolset for managing data quality in distributed
+                        systems.</p>
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-date">Aug 05, 2024</div>
+                <div class="news-content">
+                    <h2><a href="#">Research: The Latency of Large Language Models</a></h2>
+                    <p class="news-excerpt">Our latest technical report dives deep into optimization techniques for
+                        deploying LLMs in production environments.</p>
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-date">Jun 20, 2024</div>
+                <div class="news-content">
+                    <h2><a href="#">Saga Data Welcomes New VP of Engineering</a></h2>
+                    <p class="news-excerpt">Sarah Chen joins us from TechGlobal to lead our platform infrastructure
+                        teams.</p>
+                </div>
+            </article>
         </section>
     </main>
 
