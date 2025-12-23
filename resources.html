@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="warm-academic">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -10,9 +10,6 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:wght@400;600;700&display=swap"
-        rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
         rel="stylesheet">
@@ -79,42 +76,8 @@
         <a href="index.html" class="logo">SD.t</a>
         <nav style="display: flex; gap: 1.5rem; align-items: center;">
             <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
             <a href="resources.html" class="active">Resources</a>
-            <a href="news.html">News</a>
-            <a href="about.html">About</a>
             <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
-
-            <div style="display: flex; gap: 0.5rem; margin-left: 1rem;">
-                <button id="theme-toggle" class="theme-btn" aria-label="Switch Theme">
-                    <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" style="display: block;">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="theme-icon-snow" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" style="display: none;">
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <line x1="12" y1="2" x2="12" y2="22"></line>
-                        <path d="m20 16-4-4 4-4"></path>
-                        <path d="m4 8 4 4-4 4"></path>
-                        <path d="m16 4-4 4-4-4"></path>
-                        <path d="m8 20 4-4 4 4"></path>
-                    </svg>
-                </button>
-                <button id="font-toggle" class="theme-btn" aria-label="Switch Font">
-                    <span style="font-weight: bold; font-size: 1.2rem;">F</span>
-                </button>
-            </div>
         </nav>
     </header>
 
@@ -168,7 +131,6 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>

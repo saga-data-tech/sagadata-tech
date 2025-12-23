@@ -2,57 +2,36 @@
    1. Theme Variables
    ========================================= */
 :root {
-    /* DEFAULT: Warm & Academic*/
-    --bg-color: #F0EFEA;
-    /* Carrara */
-    --text-color: #141413;
-    /* Cod Gray */
-    --heading-font: 'Playfair Display', serif;
-    --body-font: 'Merriweather', serif;
-    --accent-color: #CC785C;
-    /* Antique Brass */
-    --secondary-accent: #788c5d;
-    /* Muted Green */
-    --card-bg: rgba(255, 255, 255, 0.4);
-    --border-color: rgba(20, 20, 19, 0.1);
+    /* BACKGROUNDS */
+    /* A slightly warmer, bone-white to complement the earth tones */
+    --bg-color: #F4F3EF;
 
-    /* Decoration Params */
+    /* TEXT */
+    /* A very deep green-charcoal, softer than pure black */
+    --text-color: #1A1C18;
+
+    /* FONTS */
+    --heading-font: 'Space Grotesk', sans-serif;
+    --body-font: 'Inter', sans-serif;
+
+    /* ACCENTS */
+    /* Primary Accent: Spicy Mustard (High Energy/CTA) */
+    --accent-color: #DDA15E;
+
+    /* Secondary Accent: Deep Olive (Stability/Structure) */
+    --secondary-accent: #556B2F;
+
+    /* UI ELEMENTS */
+    /* Increased opacity slightly for better legibility against the new hues */
+    --card-bg: rgba(255, 255, 255, 0.6);
+
+    /* A faint olive border for subtle structure */
+    --border-color: rgba(85, 107, 47, 0.2);
+
+    /* DECORATION */
     --noise-opacity: 0.05;
     --shape-radius: 50%;
     --grid-display: none;
-}
-
-[data-theme="cool-industrial"] {
-    /* Cool & Industrial*/
-    --bg-color: #F5F7FA;
-    /* Light Cool Grey */
-    --text-color: #0F172A;
-    /* Slate 900 */
-    /* Fonts moved to data-font logic */
-    --accent-color: #0EA5E9;
-    /* Sky Blue */
-    --secondary-accent: #10B981;
-    /* Emerald */
-    --card-bg: #FFFFFF;
-    --border-color: rgba(15, 23, 42, 0.1);
-
-    /* Decoration Params */
-    --noise-opacity: 0;
-    --shape-radius: 4px;
-    --grid-display: block;
-}
-
-/* =========================================
-   1a. Font Themes
-   ========================================= */
-[data-font="serif"] {
-    --heading-font: 'Playfair Display', serif;
-    --body-font: 'Merriweather', serif;
-}
-
-[data-font="sans"] {
-    --heading-font: 'Space Grotesk', sans-serif;
-    --body-font: 'Inter', sans-serif;
 }
 
 /* =========================================
@@ -88,23 +67,6 @@ body::before {
     pointer-events: none;
     z-index: -1;
     transition: opacity 0.5s ease;
-}
-
-/* Grid Background for Cool Theme */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    display: var(--grid-display);
-    pointer-events: none;
-    z-index: -2;
 }
 
 h1,
@@ -157,29 +119,6 @@ a {
     border-bottom: 2px solid var(--accent-color);
 }
 
-
-/* Theme Toggle */
-.theme-btn {
-    background: transparent;
-    border: 1px solid var(--text-color);
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    font-family: var(--body-font);
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-}
-
-.theme-btn:hover {
-    background: rgba(0, 0, 0, 0.05);
-}
-
 /* Hero */
 .hero {
     padding: 6rem 5%;
@@ -225,14 +164,6 @@ a {
     position: relative;
 }
 
-[data-theme="cool-industrial"] .visual-element {
-    background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
-    filter: blur(2px);
-    /* Techy polygon clip */
-    clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
-}
-
 /* Services */
 .services {
     padding: 6rem 5%;
@@ -248,16 +179,6 @@ a {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     /* Slightly rounded always */
-}
-
-[data-theme="cool-industrial"] .service-card {
-    border-left: 4px solid var(--accent-color);
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 0;
-    background: #fffafa;
-    /* Very subtle tint */
 }
 
 .service-card h2 {
@@ -287,7 +208,6 @@ a {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     font-family: var(--heading-font);
-    /* Use display font for "Quote" feel */
 }
 
 /* Footer */
