@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data and Analytics | Saga Data</title>
+    <meta name="description" content="Advanced Data and Analytics services to drive decision making.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hero-section {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, rgba(var(--accent-rgb), 0.05));
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 6rem 5%;
+            background: var(--bg-secondary);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">SD.t</a>
+        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Services</a>
+                <div class="dropdown-content">
+                    <a href="service-strategy.html">Data Strategy and Advisory</a>
+                    <a href="service-analytics.html">Data and Analytics</a>
+                    <a href="service-gen-ai.html">Generative AI and ML</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Industries</a>
+                <div class="dropdown-content">
+                    <a href="industry-subscription.html">Subscription</a>
+                    <a href="industry-sustainability.html">Sustainability</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Insights</a>
+                <div class="dropdown-content">
+                    <a href="insights-blogs.html">Blogs</a>
+                    <a href="insights-whitepapers.html">White papers</a>
+                    <a href="insights-videos.html">Videos</a>
+                    <a href="insights-casestudies.html">Case studies</a>
+                </div>
+            </div>
+            <a href="resources.html">Resources</a>
+            <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <span class="overline">Service</span>
+            <h1>Data & Analytics</h1>
+            <p class="subtitle">Turning improved data into improved performance.</p>
+            <img src="assets/images/service-analytics.png" alt="Data Analytics Abstract Visualization"
+                class="hero-image" onerror="this.style.display='none'">
+        </section>
+
+        <section class="content-section">
+            <h2>Empower Your Decisions</h2>
+            <p class="lead">Saga Data helps you tame the chaos of big data. We build robust pipelines and intuitive
+                dashboards that put the right information in front of the right people at the right time.</p>
+            <p>From modernizing legacy data warehouses to implementing real-time streaming analytics, our engineering
+                expertise ensures your data infrastructure is scalable, secure, and performant.</p>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Data Engineering</h3>
+                    <p>We build resilient data pipelines (ETL/ELT) that ingest, clean, and transform your data for
+                        analysis. We specialize in modern cloud data platforms like Snowflake, Databricks, and BigQuery.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>Business Intelligence</h3>
+                    <p>Visualize your success. We design interactive dashboards and reports using tools like Tableau,
+                        Power BI, and Looker that tell a compelling story with your data.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Advanced Analytics</h3>
+                    <p>Go beyond "what happened" to describe "why it happened" and "what will happen." We use
+                        statistical modeling to uncover deep trends and patterns.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Turn your data into your biggest advantage.</h2>
+            <p>See what your data can do for you.</p>
+            <a href="get-started.html" class="cta-button primary">Get in Touch</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <a href="mailto:hello@sagadata.tech">hello@sagadata.tech</a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> Saga Data LLP. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

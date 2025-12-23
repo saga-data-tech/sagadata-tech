@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos | Saga Data</title>
+    <meta name="description" content="Watch webinars and tutorials from Saga Data.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hero-section {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, rgba(var(--accent-rgb), 0.05));
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .play-icon {
+            font-size: 3rem;
+            opacity: 0.8;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            margin: 0.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">SD.t</a>
+        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Services</a>
+                <div class="dropdown-content">
+                    <a href="service-strategy.html">Data Strategy and Advisory</a>
+                    <a href="service-analytics.html">Data and Analytics</a>
+                    <a href="service-gen-ai.html">Generative AI and ML</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Industries</a>
+                <div class="dropdown-content">
+                    <a href="industry-subscription.html">Subscription</a>
+                    <a href="industry-sustainability.html">Sustainability</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Insights</a>
+                <div class="dropdown-content">
+                    <a href="insights-blogs.html">Blogs</a>
+                    <a href="insights-whitepapers.html">White papers</a>
+                    <a href="insights-videos.html">Videos</a>
+                    <a href="insights-casestudies.html">Case studies</a>
+                </div>
+            </div>
+            <a href="resources.html">Resources</a>
+            <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <span class="overline">Insights</span>
+            <h1>Videos & Webinars</h1>
+            <p class="subtitle">Watch our experts explain complex concepts in simple terms.</p>
+            <img src="assets/images/insights-hero.png" alt="Insights Network Visualization" class="hero-image"
+                onerror="this.style.display='none'">
+        </section>
+
+        <section class="blog-grid">
+            <article class="blog-card">
+                <div class="video-thumbnail">
+                    <span class="play-icon">▶</span>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Webinar • 45 mins</div>
+                    <h3>Demystifying AI for Business Leaders</h3>
+                    <p>A crash course in what Gen AI can actually do for your business, minus the technical jargon.</p>
+                    <a href="#" class="read-more">Watch Now →</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="video-thumbnail">
+                    <span class="play-icon">▶</span>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Tutorial • 12 mins</div>
+                    <h3>Setting Up Your First Data Pipeline</h3>
+                    <p>A technical walkthrough of setting up a simple ETL pipeline using open source tools.</p>
+                    <a href="#" class="read-more">Watch Now →</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <a href="mailto:hello@sagadata.tech">hello@sagadata.tech</a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> Saga Data LLP. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

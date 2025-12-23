@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Strategy and Advisory | Saga Data</title>
+    <meta name="description"
+        content="Transform your business with expert Data Strategy and Advisory services from Saga Data.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hero-section {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, rgba(var(--accent-rgb), 0.05));
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 6rem 5%;
+            background: var(--bg-secondary);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">SD.t</a>
+        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Services</a>
+                <div class="dropdown-content">
+                    <a href="service-strategy.html">Data Strategy and Advisory</a>
+                    <a href="service-analytics.html">Data and Analytics</a>
+                    <a href="service-gen-ai.html">Generative AI and ML</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Industries</a>
+                <div class="dropdown-content">
+                    <a href="industry-subscription.html">Subscription</a>
+                    <a href="industry-sustainability.html">Sustainability</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Insights</a>
+                <div class="dropdown-content">
+                    <a href="insights-blogs.html">Blogs</a>
+                    <a href="insights-whitepapers.html">White papers</a>
+                    <a href="insights-videos.html">Videos</a>
+                    <a href="insights-casestudies.html">Case studies</a>
+                </div>
+            </div>
+            <a href="resources.html">Resources</a>
+            <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <span class="overline">Service</span>
+            <h1>Data Strategy & Advisory</h1>
+            <p class="subtitle">Aligning data initiatives with business goals for maximum impact.</p>
+            <img src="assets/images/service-strategy.png" alt="Data Strategy Abstract Visualization" class="hero-image"
+                onerror="this.style.display='none'">
+        </section>
+
+        <section class="content-section">
+            <h2>Unlock the Value of Your Data</h2>
+            <p class="lead">In the digital age, data is not just an asset; it's the lifeblood of innovation. Our Data
+                Strategy and Advisory services help you navigate the complexities of data management, governance, and
+                monetization.</p>
+            <p>We work closely with your leadership team to define a roadmap that transforms raw data into actionable
+                insights, ensuring your technology investments deliver real-world business value.</p>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Data Maturity Assessment</h3>
+                    <p>Evaluate your current data capabilities and identify gaps. We provide a comprehensive scorecard
+                        and a step-by-step path to reach your desired state of data maturity.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Data Governance Framework</h3>
+                    <p>Establish the policies, procedures, and standards required to ensure data quality, security, and
+                        compliance. Build trust in your data across the organization.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Monetization Strategy</h3>
+                    <p>Discover new revenue streams by leveraging your data assets. We help you identify opportunities
+                        to create data-driven products and services.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to build a future-proof data strategy?</h2>
+            <p>Let's discuss how we can align your data with your business vision.</p>
+            <a href="get-started.html" class="cta-button primary">Start Your Journey</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <a href="mailto:hello@sagadata.tech">hello@sagadata.tech</a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> Saga Data LLP. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

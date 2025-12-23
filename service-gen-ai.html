@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI and ML | Saga Data</title>
+    <meta name="description" content="Cutting-edge Generative AI and Machine Learning solutions.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hero-section {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, rgba(var(--accent-rgb), 0.05));
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 6rem 5%;
+            background: var(--bg-secondary);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">SD.t</a>
+        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Services</a>
+                <div class="dropdown-content">
+                    <a href="service-strategy.html">Data Strategy and Advisory</a>
+                    <a href="service-analytics.html">Data and Analytics</a>
+                    <a href="service-gen-ai.html">Generative AI and ML</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Industries</a>
+                <div class="dropdown-content">
+                    <a href="industry-subscription.html">Subscription</a>
+                    <a href="industry-sustainability.html">Sustainability</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Insights</a>
+                <div class="dropdown-content">
+                    <a href="insights-blogs.html">Blogs</a>
+                    <a href="insights-whitepapers.html">White papers</a>
+                    <a href="insights-videos.html">Videos</a>
+                    <a href="insights-casestudies.html">Case studies</a>
+                </div>
+            </div>
+            <a href="resources.html">Resources</a>
+            <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <span class="overline">Service</span>
+            <h1>Generative AI & ML</h1>
+            <p class="subtitle">Innovate faster with the power of Artificial Intelligence.</p>
+            <img src="assets/images/service-gen-ai.png" alt="Generative AI Abstract Visualization" class="hero-image"
+                onerror="this.style.display='none'">
+        </section>
+
+        <section class="content-section">
+            <h2>The Future is Algo-Driven</h2>
+            <p class="lead">Generative AI isn't just hype—it's a transformative force. We help you cut through the noise
+                and implement practical, high-impact AI/ML solutions that solve real business problems.</p>
+            <p>From predictive maintenance to personalized customer experiences and automated content generation, our
+                team brings deep mathematical expertise and engineering rigor to every project.</p>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Custom LLM Applications</h3>
+                    <p>Leverage Large Language Models (LLMs) to build intelligent chatbots, semantic search engines, and
+                        automated document processing systems tailored to your industry data.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Predictive Modeling</h3>
+                    <p>Forecast demand, detect fraud, and optimize supply chains. We build, train, and deploy
+                        sophisticated machine learning models that learn and adapt.</p>
+                </div>
+                <div class="service-card">
+                    <h3>computer Vision</h3>
+                    <p>Automate visual inspection, facial recognition, and image analysis. Our computer vision solutions
+                        bring the power of sight to your software.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to adopt the next generation of tech?</h2>
+            <p>Let's build something intelligent together.</p>
+            <a href="get-started.html" class="cta-button primary">Explore AI Solutions</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <a href="mailto:hello@sagadata.tech">hello@sagadata.tech</a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> Saga Data LLP. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability | Saga Data</title>
+    <meta name="description" content="Data-driven solutions for Sustainability and ESG.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hero-section {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, rgba(var(--accent-rgb), 0.05));
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 6rem 5%;
+            background: var(--bg-secondary);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">SD.t</a>
+        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Services</a>
+                <div class="dropdown-content">
+                    <a href="service-strategy.html">Data Strategy and Advisory</a>
+                    <a href="service-analytics.html">Data and Analytics</a>
+                    <a href="service-gen-ai.html">Generative AI and ML</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Industries</a>
+                <div class="dropdown-content">
+                    <a href="industry-subscription.html">Subscription</a>
+                    <a href="industry-sustainability.html">Sustainability</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Insights</a>
+                <div class="dropdown-content">
+                    <a href="insights-blogs.html">Blogs</a>
+                    <a href="insights-whitepapers.html">White papers</a>
+                    <a href="insights-videos.html">Videos</a>
+                    <a href="insights-casestudies.html">Case studies</a>
+                </div>
+            </div>
+            <a href="resources.html">Resources</a>
+            <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <span class="overline">Industry</span>
+            <h1>Sustainability & ESG</h1>
+            <p class="subtitle">Measure what matters for people and the planet.</p>
+            <img src="assets/images/industry-sustainability.png" alt="Sustainability Abstract Visualization"
+                class="hero-image" onerror="this.style.display='none'">
+        </section>
+
+        <section class="content-section">
+            <h2>Data for a Green Future</h2>
+            <p class="lead">Sustainability is no longer a "nice to have"—it's a business imperative. Saga Data empowers
+                organizations to measure, report, and improve their Environmental, Social, and Governance (ESG)
+                performance.</p>
+            <p>Moving beyond greenwashing requires hard data. We help you collect accurate data from across your value
+                chain to drive transparent reporting and genuine impact.</p>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Carbon Accounting</h3>
+                    <p>Automate the calculation of Scope 1, 2, and 3 emissions. We integrate with your ERP and utility
+                        data to provide a real-time carbon footprint.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Supply Chain Transparency</h3>
+                    <p>Trace materials and products from source to shelf. Ensure ethical sourcing and compliance with
+                        global regulations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>ESG Reporting</h3>
+                    <p>Streamline the creation of sustainability reports aligned with frameworks like GRI, SASB, and
+                        TCFD. Turn compliance into a competitive advantage.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to make an impact?</h2>
+            <p>Let's data-drive your sustainability goals.</p>
+            <a href="get-started.html" class="cta-button primary">Start Measuring</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <a href="mailto:hello@sagadata.tech">hello@sagadata.tech</a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> Saga Data LLP. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

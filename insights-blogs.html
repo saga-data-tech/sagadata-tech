@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs | Saga Data</title>
+    <meta name="description" content="Latest thinking and updates from the Saga Data team.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hero-section {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, rgba(var(--accent-rgb), 0.05));
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            margin: 0.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">SD.t</a>
+        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Services</a>
+                <div class="dropdown-content">
+                    <a href="service-strategy.html">Data Strategy and Advisory</a>
+                    <a href="service-analytics.html">Data and Analytics</a>
+                    <a href="service-gen-ai.html">Generative AI and ML</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Industries</a>
+                <div class="dropdown-content">
+                    <a href="industry-subscription.html">Subscription</a>
+                    <a href="industry-sustainability.html">Sustainability</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Insights</a>
+                <div class="dropdown-content">
+                    <a href="insights-blogs.html">Blogs</a>
+                    <a href="insights-whitepapers.html">White papers</a>
+                    <a href="insights-videos.html">Videos</a>
+                    <a href="insights-casestudies.html">Case studies</a>
+                </div>
+            </div>
+            <a href="resources.html">Resources</a>
+            <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <span class="overline">Insights</span>
+            <h1>Latest Blogs</h1>
+            <p class="subtitle">Thoughts, trends, and techniques from our data experts.</p>
+            <img src="assets/images/insights-hero.png" alt="Insights Network Visualization" class="hero-image"
+                onerror="this.style.display='none'">
+        </section>
+
+        <section class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-content">
+                    <div class="blog-meta">Oct 24, 2024 • Data Strategy</div>
+                    <h3>Why Your Data Warehouse Is Slowing You Down</h3>
+                    <p>Is your legacy infrastructure a bottleneck? Discover how modern cloud data platforms can
+                        accelerate your time-to-insight.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-content">
+                    <div class="blog-meta">Oct 10, 2024 • AI & ML</div>
+                    <h3>Getting Started with RAG (Retrieval-Augmented Generation)</h3>
+                    <p>How to combine the power of LLMs with your private enterprise data to create intelligent,
+                        hallucination-free assistants.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-content">
+                    <div class="blog-meta">Sep 28, 2024 • Sustainability</div>
+                    <h3>The Data Challenges of Scope 3 Emissions</h3>
+                    <p>Why tracking supply chain emissions is so hard, and how data integration can solve the puzzle.
+                    </p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-content">
+                    <div class="blog-meta">Sep 15, 2024 • Subscription Economy</div>
+                    <h3>Churn vs. Retention: Where to Focus?</h3>
+                    <p>An analysis of which metric drives long-term valuation in the subscription economy.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <a href="mailto:hello@sagadata.tech">hello@sagadata.tech</a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> Saga Data LLP. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
