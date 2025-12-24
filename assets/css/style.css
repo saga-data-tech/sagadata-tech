@@ -157,6 +157,12 @@ a {
     opacity: 1 !important;
 }
 
+.dropdown-content a.active {
+    font-weight: bold;
+    color: var(--accent-color);
+    opacity: 1 !important;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
