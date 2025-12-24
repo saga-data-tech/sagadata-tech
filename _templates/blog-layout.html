@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | Saga Data</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .blog-post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .blog-post-content h1,
+        .blog-post-content h2,
+        .blog-post-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--heading-color);
+        }
+
+        .blog-post-content h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+
+        .blog-post-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-post-content ul, 
+        .blog-post-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-post-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="../index.html" class="logo">SD.t</a>
+        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Services</a>
+                <div class="dropdown-content">
+                    <a href="../service-strategy.html">Data Strategy and Advisory</a>
+                    <a href="../service-analytics.html">Data and Analytics</a>
+                    <a href="../service-gen-ai.html">Generative AI and ML</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Industries</a>
+                <div class="dropdown-content">
+                    <a href="../industry-subscription.html">Subscription</a>
+                    <a href="../industry-sustainability.html">Sustainability</a>
+                    <a href="../industry-freight-maritime.html">Freight & Maritime</a>
+                    <a href="../industry-construction-property.html">Construction & Property</a>
+                    <a href="../industry-nature-vcm.html">Nature & VCM</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" style="color: var(--accent-color);">Insights</a>
+                <div class="dropdown-content">
+                    <a href="../insights-blogs.html">Blogs</a>
+                    <a href="../insights-whitepapers.html">White papers</a>
+                    <a href="../insights-videos.html">Videos</a>
+                    <a href="../insights-casestudies.html">Case studies</a>
+                </div>
+            </div>
+            <a href="../resources.html">Resources</a>
+            <a href="../get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <article class="blog-post-content">
+            <div class="blog-meta">{{DATE}} • {{CATEGORY}}</div>
+            {{CONTENT}}
+            <a href="../insights-blogs.html" class="back-link">← Back to Blogs</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <a href="mailto:hello@sagadata.tech">hello@sagadata.tech</a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year"></span> Saga Data LLP. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
