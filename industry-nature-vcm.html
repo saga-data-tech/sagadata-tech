@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs | Saga Data</title>
-    <meta name="description" content="Latest thinking and updates from the Saga Data team.">
+    <title>Nature & VCM | Saga Data</title>
+    <meta name="description"
+        content="Empowering the Voluntary Carbon Market and Nature-based Solutions with transparent data and AI verfication.">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,47 +29,36 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
+        .content-section {
             padding: 4rem 5%;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .blog-card {
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .blog-content {
             padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
         }
 
-        .blog-meta {
-            font-size: 0.85rem;
-            opacity: 0.7;
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-card h3 {
-            margin: 0.5rem 0 1rem;
-            font-size: 1.5rem;
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 1rem;
+        .service-card h3 {
+            margin-top: 0;
             color: var(--accent-color);
-            font-weight: 500;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 6rem 5%;
+            background: var(--bg-secondary);
+            margin-top: 4rem;
         }
     </style>
 </head>
@@ -79,7 +69,7 @@
         <nav style="display: flex; gap: 1.5rem; align-items: center;">
             <a href="index.html">Home</a>
             <div class="dropdown">
-                <a href="#" style="color: var(--accent-color);">Services</a>
+                <a href="#">Services</a>
                 <div class="dropdown-content">
                     <a href="service-strategy.html">Data Strategy and Advisory</a>
                     <a href="service-analytics.html">Data and Analytics</a>
@@ -87,7 +77,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <a href="#">Industries</a>
+                <a href="#" style="color: var(--accent-color);">Industries</a>
                 <div class="dropdown-content">
                     <a href="industry-subscription.html">Subscription</a>
                     <a href="industry-sustainability.html">Sustainability</a>
@@ -97,7 +87,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <a href="#" style="color: var(--accent-color);">Insights</a>
+                <a href="#">Insights</a>
                 <div class="dropdown-content">
                     <a href="insights-blogs.html">Blogs</a>
                     <a href="insights-whitepapers.html">White papers</a>
@@ -112,49 +102,42 @@
 
     <main>
         <section class="hero-section">
-            <span class="overline">Insights</span>
-            <h1>Latest Blogs</h1>
-            <p class="subtitle">Thoughts, trends, and techniques from our data experts.</p>
-            <img src="assets/images/insights-hero.png" alt="Insights Network Visualization" class="hero-image"
+            <span class="overline">Industry</span>
+            <h1>Nature & VCM</h1>
+            <p class="subtitle">Validating impact with data integrity for a sustainable planet.</p>
+            <img src="assets/images/industry-nature-vcm.png" alt="Nature and VCM Visualization" class="hero-image"
                 onerror="this.style.display='none'">
         </section>
 
-        <section class="blog-grid">
-            <article class="blog-card">
-                <div class="blog-content">
-                    <div class="blog-meta">Oct 24, 2024 • Data Strategy</div>
-                    <h3>Why Your Data Warehouse Is Slowing You Down</h3>
-                    <p>Is your legacy infrastructure a bottleneck? Discover how modern cloud data platforms can
-                        accelerate your time-to-insight.</p>
-                    <a href="#" class="read-more">Read Article →</a>
+        <section class="content-section">
+            <h2>Transparent Sustainability</h2>
+            <p class="lead">The Voluntary Carbon Market (VCM) relies on trust and verification. We provide the data
+                infrastructure needed to monitor, report, and verify (MRV) carbon credits and nature-based projects.</p>
+            <p>Using satellite imagery, remote sensing, and blockchain technology, we bring transparency to the carbon
+                lifecycle.</p>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Digital MRV</h3>
+                    <p>Automate the monitoring, reporting, and verification process with satellite data and AI models to
+                        ensure credit quality.</p>
                 </div>
-            </article>
-            <article class="blog-card">
-                <div class="blog-content">
-                    <div class="blog-meta">Oct 10, 2024 • AI & ML</div>
-                    <h3>Getting Started with RAG (Retrieval-Augmented Generation)</h3>
-                    <p>How to combine the power of LLMs with your private enterprise data to create intelligent,
-                        hallucination-free assistants.</p>
-                    <a href="#" class="read-more">Read Article →</a>
+                <div class="service-card">
+                    <h3>Marketplace Integration</h3>
+                    <p>Seamlessly connect project data with carbon marketplaces to facilitate transparent and efficient
+                        trading.</p>
                 </div>
-            </article>
-            <article class="blog-card">
-                <div class="blog-content">
-                    <div class="blog-meta">Sep 28, 2024 • Sustainability</div>
-                    <h3>The Data Challenges of Scope 3 Emissions</h3>
-                    <p>Why tracking supply chain emissions is so hard, and how data integration can solve the puzzle.
-                    </p>
-                    <a href="#" class="read-more">Read Article →</a>
+                <div class="service-card">
+                    <h3>Biodiversity Monitoring</h3>
+                    <p>Track ecosystem health and biodiversity metrics using acoustic sensors and computer vision.</p>
                 </div>
-            </article>
-            <article class="blog-card">
-                <div class="blog-content">
-                    <div class="blog-meta">Sep 15, 2024 • Subscription Economy</div>
-                    <h3>Churn vs. Retention: Where to Focus?</h3>
-                    <p>An analysis of which metric drives long-term valuation in the subscription economy.</p>
-                    <a href="#" class="read-more">Read Article →</a>
-                </div>
-            </article>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Commit to real impact?</h2>
+            <p>Let's verify your sustainability goals with data.</p>
+            <a href="get-started.html" class="cta-button primary">Learn More</a>
         </section>
     </main>
 
