@@ -41,7 +41,62 @@
             margin-bottom: 1.5rem;
         }
 
-        .blog-post-content ul, 
+        .blog-post-content ul,
+        .blog-post-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .blog-post-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        < !DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Blog Post | Saga Data</title><meta name="description" content="Saga Data Blog Post">< !-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+
+        rel="stylesheet"><link rel="stylesheet" href="../assets/css/style.css"><style>.blog-post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .blog-post-content h1,
+        .blog-post-content h2,
+        .blog-post-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--heading-color);
+        }
+
+        .blog-post-content h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+
+        .blog-post-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-post-content ul,
         .blog-post-content ol {
             margin-bottom: 1.5rem;
             padding-left: 2rem;
@@ -73,7 +128,6 @@
     <header class="site-header">
         <a href="../index.html" class="logo">SD.t</a>
         <nav style="display: flex; gap: 1.5rem; align-items: center;">
-            <a href="../index.html">Home</a>
             <div class="dropdown">
                 <a href="#" style="color: var(--accent-color);">Services</a>
                 <div class="dropdown-content">
@@ -93,7 +147,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <a href="#" style="color: var(--accent-color);">Insights</a>
+                <a href="../resources.html" style="color: var(--accent-color);">Resources</a>
                 <div class="dropdown-content">
                     <a href="../insights-blogs.html">Blogs</a>
                     <a href="../insights-whitepapers.html">White papers</a>
@@ -101,7 +155,6 @@
                     <a href="../insights-casestudies.html">Case studies</a>
                 </div>
             </div>
-            <a href="../resources.html">Resources</a>
             <a href="../get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
         </nav>
     </header>
@@ -110,27 +163,33 @@
         <article class="blog-post-content">
             <div class="blog-meta">Recently • General</div>
             <hr>
-<h2>title: Getting Started with RAG (Retrieval-Augmented Generation)
-description: How to combine the power of LLMs with your private enterprise data to create intelligent, hallucination-free assistants.
-date: Oct 10, 2024
-category: AI &amp; ML</h2>
-<h1>Getting Started with RAG</h1>
-<p>Generative AI is transforming business, but Large Language Models (LLMs) have a flaw: they don&#39;t know your private data. This is where Retrieval-Augmented Generation (RAG) comes in.</p>
-<h2>What is RAG?</h2>
-<p>RAG is a technique that enhances LLM accuracy by fetching relevant data from your internal knowledge base before generating a response.</p>
-<h3>How it Works</h3>
-<ol>
-<li><strong>Ingestion</strong>: Documents are split into chunks and converted into vector embeddings.</li>
-<li><strong>Retrieval</strong>: When a user asks a question, the system finds the most relevant chunks.</li>
-<li><strong>Generation</strong>: The LLM uses these chunks as context to answer the question accurately.</li>
-</ol>
-<h2>Why it Matters</h2>
-<ul>
-<li><strong>Accuracy</strong>: Reduces hallucinations by grounding answers in facts.</li>
-<li><strong>Security</strong>: Keeps your data private while leveraging powerful models.</li>
-<li><strong>Freshness</strong>: No need to retrain models when data changes.</li>
-</ul>
-<p>Ready to build your first RAG application? <a href="../contact.html">Get in touch</a>.</p>
+            <h2>title: Getting Started with RAG (Retrieval-Augmented Generation)
+                description: How to combine the power of LLMs with your private enterprise data to create intelligent,
+                hallucination-free assistants.
+                date: Oct 10, 2024
+                category: AI &amp; ML</h2>
+            <h1>Getting Started with RAG</h1>
+            <p>Generative AI is transforming business, but Large Language Models (LLMs) have a flaw: they don&#39;t know
+                your private data. This is where Retrieval-Augmented Generation (RAG) comes in.</p>
+            <h2>What is RAG?</h2>
+            <p>RAG is a technique that enhances LLM accuracy by fetching relevant data from your internal knowledge base
+                before generating a response.</p>
+            <h3>How it Works</h3>
+            <ol>
+                <li><strong>Ingestion</strong>: Documents are split into chunks and converted into vector embeddings.
+                </li>
+                <li><strong>Retrieval</strong>: When a user asks a question, the system finds the most relevant chunks.
+                </li>
+                <li><strong>Generation</strong>: The LLM uses these chunks as context to answer the question accurately.
+                </li>
+            </ol>
+            <h2>Why it Matters</h2>
+            <ul>
+                <li><strong>Accuracy</strong>: Reduces hallucinations by grounding answers in facts.</li>
+                <li><strong>Security</strong>: Keeps your data private while leveraging powerful models.</li>
+                <li><strong>Freshness</strong>: No need to retrain models when data changes.</li>
+            </ul>
+            <p>Ready to build your first RAG application? <a href="../contact.html">Get in touch</a>.</p>
 
             <a href="../insights-blogs.html" class="back-link">← Back to Blogs</a>
         </article>
