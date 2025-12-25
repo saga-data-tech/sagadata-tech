@@ -67,13 +67,66 @@
             </div>
             <div class="hero-visual">
                 <!-- CSS Patterns/Shapes go here -->
-                <div class="atom-spinner">
-                    <div class="spinner-inner">
-                        <div class="spinner-line"></div>
-                        <div class="spinner-line"></div>
-                        <div class="spinner-line"></div>
-                        <!--Chrome renders little circles malformed :(-->
-                        <div class="spinner-circle">&#9679;</div>
+                <div class="lifecycle-container">
+                    <div class="central-core">
+                        <div class="core-label">Govern</div>
+                        <div class="core-divider"></div>
+                        <div class="core-label">Orchestrate</div>
+                    </div>
+
+                    <svg class="path-svg" viewBox="0 0 800 600">
+                        <path id="master-path" d="M 200 80 L 200 350 A 200 150 0 0 0 600 350 L 600 80" />
+                    </svg>
+
+                    <div id="particle-container"></div>
+
+                    <div class="station s1" data-milestone="0.00"><svg viewBox="0 0 24 24">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                            <path d="M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg></div>
+                    <div class="station s2" data-milestone="0.13"><svg viewBox="0 0 24 24">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg></div>
+                    <div class="station s3" data-milestone="0.25"><svg viewBox="0 0 24 24">
+                            <path d="M12 5v14M5 12l7 7 7-7" />
+                        </svg></div>
+                    <div class="station s4" data-milestone="0.42"><svg viewBox="0 0 24 24">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        </svg></div>
+                    <div class="station s5" data-milestone="0.58"><svg viewBox="0 0 24 24">
+                            <rect class="transform-rect" x="4" y="4" width="16" height="16" rx="2"></rect>
+                            <circle class="transform-circle circle-1" cx="12" cy="12" r="4"></circle>
+                            <circle class="transform-circle circle-2" cx="12" cy="12" r="7"></circle>
+                            <circle class="transform-circle circle-3" cx="12" cy="12" r="10"></circle>
+                        </svg></div>
+                    <div class="station s6" data-milestone="0.75"><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor">
+                            <path
+                                d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.04-2.44 2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 2.04-2.44A2.5 2.5 0 0 1 9.5 2zM14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.04-2.44 2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0-2.04-2.44A2.5 2.5 0 0 0 14.5 2z">
+                            </path>
+                        </svg></div>
+                    <div class="station s7" data-milestone="0.87">
+                        <div class="dashboard-ui">
+                            <div class="db-bar"></div>
+                            <div class="db-bar"></div>
+                            <div class="db-bar"></div>
+                        </div>
+                    </div>
+
+                    <!-- 08 Archive Station Redesign -->
+                    <div class="station s8" data-milestone="1.00">
+                        <svg viewBox="0 0 24 24">
+                            <!-- Box Outline -->
+                            <path class="box-outline" d="M21 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8h18zM2 5h20v3H2V5z">
+                            </path>
+                            <!-- Zipper Teeth -->
+                            <line class="zipper-teeth" x1="12" y1="8" x2="12" y2="20"></line>
+                            <!-- Zipper Pull/Slider -->
+                            <rect class="zipper-pull" x="10.5" y="8" width="3" height="5" rx="1" fill="currentColor">
+                            </rect>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -123,6 +176,7 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+    <script src="assets/js/hero-visual.js"></script>
 </body>
 
 </html>
