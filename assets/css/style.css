@@ -262,27 +262,47 @@ a {
     border-radius: 50%;
     box-sizing: border-box;
     transform-style: preserve-3d;
-    animation: orbit-spin 10s infinite linear;
 }
 
 .orbit-1 {
-    animation-delay: 0s;
+    animation: orbit-1-spin 12s infinite linear;
 }
 
 .orbit-2 {
-    animation-delay: -3.33s;
+    animation: orbit-2-spin 15s infinite linear;
 }
 
 .orbit-3 {
-    animation-delay: -6.66s;
+    animation: orbit-3-spin 9s infinite linear;
 }
 
-@keyframes orbit-spin {
+@keyframes orbit-1-spin {
     0% {
-        transform: rotateZ(0deg) rotateX(70deg);
+        transform: rotateY(0deg) rotateX(70deg);
     }
+
     100% {
-        transform: rotateZ(360deg) rotateX(70deg);
+        transform: rotateY(360deg) rotateX(70deg);
+    }
+}
+
+@keyframes orbit-2-spin {
+    0% {
+        transform: rotateY(120deg) rotateX(70deg);
+    }
+
+    100% {
+        transform: rotateY(-240deg) rotateX(70deg);
+    }
+}
+
+@keyframes orbit-3-spin {
+    0% {
+        transform: rotateY(240deg) rotateX(70deg);
+    }
+
+    100% {
+        transform: rotateY(600deg) rotateX(70deg);
     }
 }
 
