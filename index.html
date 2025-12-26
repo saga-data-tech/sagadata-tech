@@ -22,9 +22,12 @@
 
     <header class="site-header">
         <a href="index.html" class="logo">SD.t</a>
-        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+        <nav class="main-nav">
             <div class="dropdown">
-                <a href="#" style="color: var(--accent-color);">Services</a>
+                <a href="#" class="nav-link" style="color: var(--accent-color);">
+                    <span class="desktop-text">Services</span>
+                    <span class="mobile-text">S</span>
+                </a>
                 <div class="dropdown-content">
                     <a href="service-strategy.html">Data Strategy and Advisory</a>
                     <a href="service-analytics.html">Data and Analytics</a>
@@ -33,7 +36,10 @@
             </div>
 
             <div class="dropdown">
-                <a href="#">Industries</a>
+                <a href="#" class="nav-link">
+                    <span class="desktop-text">Industries</span>
+                    <span class="mobile-text">I</span>
+                </a>
                 <div class="dropdown-content">
                     <a href="industry-subscription.html">Subscription</a>
                     <a href="industry-sustainability.html">Sustainability</a>
@@ -44,7 +50,10 @@
             </div>
 
             <div class="dropdown">
-                <a href="#">Resources</a>
+                <a href="#" class="nav-link">
+                    <span class="desktop-text">Resources</span>
+                    <span class="mobile-text">R</span>
+                </a>
                 <div class="dropdown-content">
                     <a href="insights.html">Insights</a>
                     <a href="insights-blogs.html">Blogs</a>
@@ -54,7 +63,10 @@
                 </div>
             </div>
 
-            <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
+            <a href="get-started.html" class="nav-link" style="color: var(--accent-color); font-weight: bold;">
+                <span class="desktop-text">Get Started</span>
+                <span class="mobile-text">G</span>
+            </a>
         </nav>
     </header>
 
@@ -63,7 +75,8 @@
             <div class="hero-content">
                 <span class="overline">Est. 2024</span>
                 <h1>Orchestrating your data from source to saga.</h1>
-                <p class="lead">Managing the lifecycle of your data to deliver decision-grade assets and predictive AI.</p>
+                <p class="lead">Managing the lifecycle of your data to deliver decision-grade assets and predictive AI.
+                </p>
             </div>
             <div class="hero-visual">
                 <!-- CSS Patterns/Shapes go here -->
@@ -177,6 +190,7 @@
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
     <script src="assets/js/hero-visual.js"></script>
+    <script src="assets/js/mobile-nav.js"></script>
 </body>
 
 </html>

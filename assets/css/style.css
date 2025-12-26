@@ -111,6 +111,16 @@ a {
     transition: opacity 0.2s, color 0.2s;
 }
 
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.mobile-text {
+    display: none;
+}
+
 .site-header nav a:hover {
     opacity: 1;
     color: var(--accent-color);
@@ -544,5 +554,40 @@ footer {
 
     .hero .lead {
         margin: 0 auto;
+    }
+
+    /* Mobile Navigation */
+    .site-header {
+        padding: 1.5rem 5%;
+    }
+
+    .desktop-text {
+        display: none;
+    }
+
+    .mobile-text {
+        display: inline-block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 0.5rem;
+    }
+
+    .main-nav {
+        gap: 1rem;
+    }
+
+    /* Disable hover for mobile */
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    /* Enable click toggle */
+    .dropdown.active .dropdown-content {
+        display: block;
+        position: absolute;
+        width: 200px;
+        right: 0;
+        left: auto;
+        top: 100%;
     }
 }
