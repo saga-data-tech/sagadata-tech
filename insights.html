@@ -74,18 +74,23 @@
 
     <header class="site-header">
         <a href="index.html" class="logo">SD.t</a>
-        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+        <nav class="main-nav">
             <div class="dropdown">
-                <a href="#">Services</a>
+                <a href="#" class="nav-link">
+                    <span class="desktop-text">Services</span>
+                    <span class="mobile-text">S</span>
+                </a>
                 <div class="dropdown-content">
                     <a href="service-strategy.html">Data Strategy and Advisory</a>
                     <a href="service-analytics.html">Data and Analytics</a>
                     <a href="service-gen-ai.html">Generative AI and ML</a>
                 </div>
             </div>
-
             <div class="dropdown">
-                <a href="#">Industries</a>
+                <a href="#" class="nav-link">
+                    <span class="desktop-text">Industries</span>
+                    <span class="mobile-text">I</span>
+                </a>
                 <div class="dropdown-content">
                     <a href="industry-subscription.html">Subscription</a>
                     <a href="industry-sustainability.html">Sustainability</a>
@@ -94,19 +99,23 @@
                     <a href="industry-nature-vcm.html">Nature & VCM</a>
                 </div>
             </div>
-
             <div class="dropdown">
-                <a href="#" style="color: var(--accent-color);">Resources</a>
+                <a href="#" class="nav-link">
+                    <span class="desktop-text">Resources</span>
+                    <span class="mobile-text">R</span>
+                </a>
                 <div class="dropdown-content">
-                    <a href="insights.html" class="active">Insights</a>
+                    <a href="insights.html">Insights</a>
                     <a href="insights-blogs.html">Blogs</a>
                     <a href="insights-whitepapers.html">White papers</a>
                     <a href="insights-videos.html">Videos</a>
                     <a href="insights-casestudies.html">Case studies</a>
                 </div>
             </div>
-
-            <a href="get-started.html" style="color: var(--accent-color); font-weight: bold;">Get Started</a>
+            <a href="get-started.html" class="nav-link" style="color: var(--accent-color); font-weight: bold;">
+                <span class="desktop-text">Get Started</span>
+                <span class="mobile-text">G</span>
+            </a>
         </nav>
     </header>
 
@@ -163,6 +172,7 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+    <script src="assets/js/mobile-nav.js"></script>
 </body>
 
 </html>
