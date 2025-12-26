@@ -249,7 +249,8 @@ a {
     background-color: var(--accent-color);
     border-radius: 50%;
     z-index: 10;
-    box-shadow: 0 0 15px rgba(225, 173, 1, 0.5);
+    box-shadow: 0 0 20px 5px rgba(225, 173, 1, 0.8);
+    filter: blur(2px);
 }
 
 .atom-orbit {
@@ -258,22 +259,22 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 2px solid var(--accent-color);
+    border: 4px solid var(--accent-color);
     border-radius: 50%;
     box-sizing: border-box;
     transform-style: preserve-3d;
 }
 
 .orbit-1 {
-    animation: orbit-1-spin 12s infinite linear;
+    animation: orbit-1-spin 9.6s infinite linear;
 }
 
 .orbit-2 {
-    animation: orbit-2-spin 15s infinite linear;
+    animation: orbit-2-spin 12s infinite linear;
 }
 
 .orbit-3 {
-    animation: orbit-3-spin 9s infinite linear;
+    animation: orbit-3-spin 7.2s infinite linear;
 }
 
 @keyframes orbit-1-spin {
