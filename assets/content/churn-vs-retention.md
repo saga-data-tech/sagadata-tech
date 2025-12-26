@@ -1,5 +1,5 @@
 ---
-title: Churn vs. Retention: Where to Focus?
+title: "Churn vs. Retention: Where to Focus?"
 description: An analysis of which metric drives long-term valuation in the subscription economy.
 date: Sep 15, 2024
 category: Subscription Economy

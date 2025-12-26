@@ -1,7 +1,7 @@
 ---
 title: Customer 360 View Driving Sales
 description: Unifying online and offline data to create a personalized shopping experience that boosted LTV by 25%.
-date: Retail
+date: Sep 18, 2024
 category: Analytics
 ---
 

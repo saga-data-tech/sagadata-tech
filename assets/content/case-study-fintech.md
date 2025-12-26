@@ -1,7 +1,7 @@
 ---
 title: Scaling from Spreadsheet to Database
 description: How a fast-growing fintech startup reduced reporting time by 90% by modernizing their data stack.
-date: Fintech
+date: Sep 20, 2024
 category: Data Strategy
 ---
 

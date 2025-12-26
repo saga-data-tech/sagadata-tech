@@ -1,7 +1,7 @@
 ---
 title: Predictive Maintenance Saves Millions
 description: Implementing IoT sensors and machine learning to predict equipment failure before it happens.
-date: Manufacturing
+date: Sep 19, 2024
 category: AI/ML
 ---
 
