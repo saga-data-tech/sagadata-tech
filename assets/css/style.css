@@ -581,6 +581,18 @@ footer {
         gap: 1rem;
     }
 
+    /* When dropdown is open, swap initial for full text */
+    .dropdown.active .nav-link .mobile-text {
+        display: none;
+    }
+
+    .dropdown.active .nav-link .desktop-text {
+        display: inline-block;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 0.5rem;
+    }
+
     /* Disable hover for mobile */
     .dropdown:hover .dropdown-content {
         display: none;
