@@ -239,7 +239,7 @@ a {
     justify-content: center;
     align-items: center;
     transform-style: preserve-3d;
-    perspective: 1000px;
+    perspective: 3000px;
 }
 
 .atom-core {
@@ -248,7 +248,7 @@ a {
     height: 24px;
     background-color: var(--accent-color);
     border-radius: 50%;
-    z-index: 10;
+    /* z-index removed to allow 3D occlusion */
     box-shadow: 0 0 20px 5px rgba(225, 173, 1, 0.8);
     filter: blur(2px);
 }
@@ -263,19 +263,19 @@ a {
     border-radius: 50%;
     box-sizing: border-box;
     transform-style: preserve-3d;
-    box-shadow: 0 0 10px rgba(225, 173, 1, 0.4), inset 0 0 10px rgba(225, 173, 1, 0.4);
+    box-shadow: 0 0 15px rgba(225, 173, 1, 0.5), inset 0 0 15px rgba(225, 173, 1, 0.5);
 }
 
 .orbit-1 {
-    animation: orbit-1-spin 9.6s infinite linear;
+    animation: orbit-1-spin 4.8s infinite linear;
 }
 
 .orbit-2 {
-    animation: orbit-2-spin 12s infinite linear;
+    animation: orbit-2-spin 6s infinite linear;
 }
 
 .orbit-3 {
-    animation: orbit-3-spin 7.2s infinite linear;
+    animation: orbit-3-spin 3.6s infinite linear;
 }
 
 @keyframes orbit-1-spin {
