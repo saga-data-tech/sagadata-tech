@@ -264,14 +264,61 @@ a {
     /* Above canvas */
 }
 
+/* ORBITS (RINGS) - Swapped to Olive */
+.atom-orbit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid var(--secondary-accent);
+    /* Main Olive border */
+    transform-style: preserve-3d;
+    box-shadow: 0 0 15px rgba(85, 107, 47, 0.6), inset 0 0 15px rgba(85, 107, 47, 0.6);
+    /* Olive Glow */
+}
+
+/* Ensure diverse ring rotations & Meaningful Colors */
+/* Ring 1: Gold Layer Quality (Mustard) */
+.orbit-1 {
+    animation: orbit-1-spin 7s linear infinite;
+    border: 4px solid var(--accent-color);
+    /* Tubular Shading */
+    box-shadow:
+        inset 1px 1px 3px rgba(0, 0, 0, 0.6),
+        inset -1px -1px 3px rgba(255, 255, 255, 0.4),
+        0 0 10px rgba(225, 173, 1, 0.6);
+}
+
+/* Ring 2: Sustainability (Olive) */
+.orbit-2 {
+    animation: orbit-2-spin 9s linear infinite;
+    border: 4px solid var(--secondary-accent);
+    /* Tubular Shading */
+    box-shadow:
+        inset 1px 1px 3px rgba(0, 0, 0, 0.6),
+        inset -1px -1px 3px rgba(255, 255, 255, 0.4),
+        0 0 10px rgba(85, 107, 47, 0.6);
+}
+
+/* Ring 3: Data Foundation (Charcoal Green) */
+.orbit-3 {
+    animation: orbit-3-spin 11s linear infinite;
+    border: 4px solid #2F4F4F;
+    /* Tubular Shading */
+    box-shadow:
+        inset 1px 1px 3px rgba(0, 0, 0, 0.6),
+        inset -1px -1px 3px rgba(255, 255, 255, 0.4),
+        0 0 10px rgba(47, 79, 79, 0.6);
+}
+
 /* BRAIN CONTAINER (Replaces CORE) */
 .brainContainer {
     position: absolute;
     width: 120px;
-    /* Fit inside the 300px rings */
     height: 120px;
     z-index: 10;
-    /* Center focal point */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -283,29 +330,30 @@ a {
     height: 100%;
     fill: none;
     overflow: visible;
-    /* Glow Effect */
-    filter: drop-shadow(0 0 8px rgba(85, 107, 47, 0.8));
+    /* Glow Effect - Swapped to Mustard */
+    filter: drop-shadow(0 0 8px rgba(225, 173, 1, 0.8));
 }
 
 .brainPath {
-    stroke-width: 10;
+    stroke-width: 28;
+    /* Doubled for ~5.5px visual thickness */
     fill: none;
-    stroke: var(--secondary-accent);
-    /* Olive Green */
+    stroke: var(--accent-color);
+    /* Swapped to Mustard */
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
 }
 
 .brainRect {
-    fill: var(--secondary-accent);
+    fill: var(--accent-color);
 }
 
 .brainCircle {
-    fill: var(--secondary-accent);
+    fill: var(--accent-color);
 }
 
 .brainEllipse {
-    fill: var(--secondary-accent);
+    fill: var(--accent-color);
 }
 
 /* ANIMATION CLASSES for Brain */
@@ -349,32 +397,7 @@ a {
     }
 }
 
-.atom-orbit {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 8px solid #F8D568;
-    /* Lighter shade for tube "core" highlight */
-    border-radius: 50%;
-    box-sizing: border-box;
-    transform-style: preserve-3d;
-    box-shadow: 0 0 15px rgba(225, 173, 1, 0.6), inset 0 0 15px rgba(225, 173, 1, 0.6);
-    /* Glow/Shadow */
-}
 
-.orbit-1 {
-    animation: orbit-1-spin 4.8s infinite linear;
-}
-
-.orbit-2 {
-    animation: orbit-2-spin 6s infinite linear;
-}
-
-.orbit-3 {
-    animation: orbit-3-spin 3.6s infinite linear;
-}
 
 @keyframes orbit-1-spin {
     0% {
@@ -397,6 +420,10 @@ a {
 }
 
 @keyframes orbit-3-spin {
+    0% {
+        transform: rotateX(240deg) rotateY(0deg);
+    }
+
     100% {
         transform: rotateX(600deg) rotateY(360deg);
     }

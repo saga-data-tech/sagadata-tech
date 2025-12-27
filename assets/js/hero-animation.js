@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Configuration
     const particleCount = 500;
-    const colors = ['#E1AD01', '#F8D568', '#C59100', '#DAA520', '#FFBF00']; // Mustard/Gold Shades
     const maxDistance = 600; // px spread
 
     // Select Container
@@ -30,20 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
         animation: 'rot 60s linear infinite' // Slow rotation of the whole cloud
     });
 
-    // Generate Dynamic CSS
+    // Generate Dynamic CSS - PERFORMANCE OPTIMIZED
     let styleSheet = document.getElementById('particle-styles');
     if (styleSheet) styleSheet.remove();
     styleSheet = document.createElement('style');
     styleSheet.id = 'particle-styles';
 
+    // Increased base size to 3px (visible start), no box-shadow for performance
     let css = `
         .particle-container div {
             position: absolute;
-            height: 1.5px; /* Extremely small dots */
-            width: 1.5px;
-            margin: -0.75px;
+            height: 3px;
+            width: 3px;
+            margin: -1.5px; 
             border-radius: 50%;
             opacity: 0;
+            will-change: transform, opacity;
         }
         @keyframes rot {
             100% { transform: rotate(360deg); }
@@ -51,50 +52,43 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     for (let i = 1; i <= particleCount; i++) {
-        // Random Position for Keyframe (Outer limit)
-        // We want them to start OUT THERE (100% state in reverse) and come to CENTER (0% state in reverse)
-        // With 'reverse', 0% is end state (center) and 100% is start state (outer).
-        // Wait: normal animation goes 0% -> 100%. 
-        // Reverse goes 100% -> 0%.
-        // So at t=0 (start of reverse playback), visual state is 100%. 
-        // at t=end, visual state is 0%.
-
-        // Logic:
-        // 0% { transform: translate(0,0); opacity: 1; }  <-- The center (End goal of implosion)
-        // 100% { transform: translate(randomX, randomY); opacity: 0; } <-- The outer void (Start of implosion)
-
         const randomSignX = Math.random() > 0.5 ? 1 : -1;
         const randomSignY = Math.random() > 0.5 ? 1 : -1;
-        // Distribution: concentrate more near center or uniform? Uniform is fine.
         const tx = Math.floor(Math.random() * maxDistance) * randomSignX;
         const ty = Math.floor(Math.random() * maxDistance) * randomSignY;
 
         const animName = `p_anim_${i}`;
-        // Delay: negative delay to pre-scatter them or staggered start? 
-        // User logic: animation-delay: #{(-1/$items) * $i}s
-        // This spreads the phase so they don't all pulse at once.
-        const delay = (i / particleCount) * -4 + 's'; // 4s cycle spread
-        const duration = (2 + Math.random() * 2) + 's'; // Varied speed 2-4s
-        const color = colors[Math.floor(Math.random() * colors.length)];
+        const delay = (i / particleCount) * -4 + 's';
+        const duration = (2 + Math.random() * 2) + 's';
+
+        // Pick an Olive shade for the start/outer state
+        const oliveShades = ['#556B2F', '#6B8E23', '#4E3B31'];
+        const startColor = oliveShades[Math.floor(Math.random() * oliveShades.length)];
+        const targetColor = '#E1AD01'; // Mustard
 
         // Add particle DIV
         const p = document.createElement('div');
-        // p.style.backgroundColor = color; // Inline or class? CSS is cleaner but file size... inline is easier for color.
-        // Actually huge CSS string might be heavy. Let's try inline for static distinct props if possible?
-        // No, the animation keyframes MUST be in CSS.
-        // Color can be inline style to save CSS string size.
         container.appendChild(p);
+
+        // Keyframe Logic (Reverse Playback: 100% -> 0%):
+        // 100% (Outer Start): Scale 1.2, Opacity 0 (Fade in from void)
+        // 80% (Outer Visible): Scale 1, Opacity 0.8, Color Olive
+        // 20% (Outside Ring ~120px): Color Olive (Holding color)
+        // 15% (Ring Boundary ~90px): Color SWAP to Mustard (Data Upgrade) + Shrink starts
+        // 0% (Center End): Scale 0, Opacity 0 (Disappear into brain), Color Mustard
 
         css += `
             .particle-container div:nth-child(${i}) {
-                background-color: ${color};
+                background-color: ${startColor}; 
                 animation: ${animName} ${duration} ease-in infinite reverse;
                 animation-delay: ${delay};
-                box-shadow: 0 0 2px ${color}; 
             }
             @keyframes ${animName} {
-                0% { transform: translate(0,0); opacity: 1; }
-                100% { transform: translate(${tx}px, ${ty}px); opacity: 0; }
+                0% { transform: translate(0,0) scale(0); opacity: 0; background-color: ${targetColor}; }
+                15% { transform: translate(${tx * 0.15}px, ${ty * 0.15}px) scale(0.6); background-color: ${targetColor}; }
+                20% { transform: translate(${tx * 0.20}px, ${ty * 0.20}px) scale(0.8); background-color: ${startColor}; }
+                80% { opacity: 0.8; }
+                100% { transform: translate(${tx}px, ${ty}px) scale(1.2); opacity: 0; background-color: ${startColor}; }
             }
         `;
     }
