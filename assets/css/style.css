@@ -104,6 +104,11 @@ a {
     font-weight: bold;
 }
 
+.logo-dot {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
 .site-header nav a {
     font-family: var(--body-font);
     font-size: 0.95rem;
