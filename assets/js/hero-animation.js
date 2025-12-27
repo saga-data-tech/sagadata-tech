@@ -153,31 +153,16 @@ class Particle {
     }
 }
 
+// Hero Animation Script - Particles Removed
+// Keeps structure safe if referenced but does nothing.
+
 function init() {
-    resize();
-    const particleCount = isMobile ? 60 : 150;
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
+    // console.log("Hero animation initialized - minimal mode");
 }
 
 function animate() {
-    ctx.clearRect(0, 0, width, height);
-
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
-
-    requestAnimationFrame(animate);
+    // No loop needed
 }
-
-window.addEventListener('resize', () => {
-    resize();
-    init(); // Re-init to adjust particle counts and positions
-});
 
 // Start
 init();
-animate();
