@@ -337,6 +337,112 @@ a {
 }
 
 /* Waveform Extension */
+/* Source Extension (Left) */
+.source-extension {
+    position: absolute;
+    right: 200px;
+    /* Mirroring the left: 200px of waveform */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 0;
+}
+
+.particle-stream {
+    display: flex;
+    flex-direction: row-reverse;
+    /* Flow towards center */
+    align-items: center;
+    gap: 6px;
+    height: 60px;
+}
+
+.source-particle {
+    width: 6px;
+    height: 6px;
+    background-color: var(--charcoal-green);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: source-flow 1.5s infinite ease-in;
+}
+
+/* Shades of Charcoal Green and Random Heights for "Raw Data" feel */
+.source-particle:nth-child(odd) {
+    height: 8px;
+    width: 8px;
+    background-color: #3E4B3E;
+    /* Lighter charcoal green */
+    animation-duration: 1.2s;
+}
+
+.source-particle:nth-child(even) {
+    height: 4px;
+    width: 4px;
+    background-color: #1A251A;
+    /* Darker charcoal green */
+    animation-duration: 1.8s;
+}
+
+.source-particle:nth-child(1) {
+    animation-delay: 0s;
+    opacity: 0.2;
+}
+
+.source-particle:nth-child(2) {
+    animation-delay: 0.2s;
+    opacity: 0.4;
+}
+
+.source-particle:nth-child(3) {
+    animation-delay: 0.4s;
+    opacity: 0.6;
+}
+
+.source-particle:nth-child(4) {
+    animation-delay: 0.6s;
+    opacity: 0.8;
+}
+
+.source-particle:nth-child(5) {
+    animation-delay: 0.8s;
+    opacity: 1;
+}
+
+.source-particle:nth-child(6) {
+    animation-delay: 1.0s;
+    opacity: 0.7;
+}
+
+.source-particle:nth-child(7) {
+    animation-delay: 1.2s;
+    opacity: 0.5;
+}
+
+.source-particle:nth-child(8) {
+    animation-delay: 1.4s;
+    opacity: 0.3;
+}
+
+@keyframes source-flow {
+    0% {
+        transform: translateX(-20px) scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(0) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(10px) scale(1);
+        opacity: 0.5;
+    }
+}
+
+
+/* Waveform Extension (Right) */
 :root {
     --charcoal-green: #2D3A2D;
 }
@@ -344,15 +450,12 @@ a {
 .waveform-extension {
     position: absolute;
     left: 200px;
-    /* Offset from center (container is 180px wide). 200px places it nicely to the right */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
     gap: 8px;
-    /* Spacing between bars and endpoint */
     z-index: 0;
-    /* Behind or inline with atom */
 }
 
 .data-stream {
@@ -360,21 +463,22 @@ a {
     align-items: center;
     gap: 4px;
     height: 60px;
-    /* Constrain height */
 }
 
 .data-bar {
     width: 4px;
-    background-color: var(--charcoal-green);
+    background-color: var(--accent-color);
+    /* ALL Spicy Mustard */
     border-radius: 2px;
     animation: waveform-pulse 1.2s infinite ease-in-out;
     height: 10px;
-    /* Start height */
+    box-shadow: 0 0 5px rgba(225, 173, 1, 0.4);
+    /* Subtle glow */
 }
 
-/* Alternate colors and animations */
+/* Remove alternating colors, keep alternating timing */
 .data-bar:nth-child(odd) {
-    background-color: var(--charcoal-green);
+    background-color: var(--accent-color);
     animation-duration: 0.8s;
 }
 
