@@ -5,7 +5,9 @@ const atomContainer = document.querySelector('.atom-container');
 let width, height, centerX, centerY;
 let particles = [];
 let targetSphereRadius = 150; // Radius of the target sphere
-const colors = ['#E1AD01', '#1A1C18', '#b38b00', '#2e312b']; // Mustard & Charcoal variations
+// Palette
+const greenColors = ['#2D3A2D', '#1A1C18', '#3E4B3E', '#252822', '#4A5D4A'];
+const mustardColor = '#E1AD01';
 
 // Mobile adjustments
 let isMobile = window.innerWidth <= 768;
@@ -31,11 +33,19 @@ class Particle {
     }
 
     reset() {
+        // Vertical Constraints: Keep away from top (Nav) and bottom (Services)
+        // Use 20% padding top and bottom
+        const verticalPadding = height * 0.2;
+        const availableHeight = height - (verticalPadding * 2);
+
         // Spawn on the left side, extending almost to the center
         this.x = Math.random() * (centerX - 50); // Left side up to core with buffer
-        this.y = Math.random() * height;
+        this.y = verticalPadding + Math.random() * availableHeight;
+
         this.size = Math.random() * (isMobile ? 2 : 3) + 1;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
+
+        // Start as Green (Source)
+        this.color = greenColors[Math.floor(Math.random() * greenColors.length)];
 
         // State: 0=Chaos, 1=Sucking, 2=Sphere
         this.state = 0;
@@ -51,13 +61,15 @@ class Particle {
     }
 
     update() {
+        const verticalPadding = height * 0.2;
+
         if (this.state === 0) {
             // CHAOS: Drift and slowly move towards center
             this.x += this.vx + 0.2; // Slight right drift
             this.y += this.vy;
 
             // Constrain chaos area vertically
-            if (this.y < 0 || this.y > height) this.vy *= -1;
+            if (this.y < verticalPadding || this.y > (height - verticalPadding)) this.vy *= -1;
 
             // Transition to sucking if close to center horizontally (but still left)
             if (this.x > (centerX - 100) && Math.random() > 0.98) {
@@ -85,7 +97,8 @@ class Particle {
                 this.state = 2;
                 this.x = centerX;
                 this.y = centerY;
-                // Eject to right
+                // Eject to right -> Change to Mustard (Saga)
+                this.color = mustardColor;
                 this.size = Math.random() * (isMobile ? 2 : 3) + 1; // Restore size
             }
 
