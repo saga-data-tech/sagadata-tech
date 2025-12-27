@@ -264,23 +264,89 @@ a {
     /* Above canvas */
 }
 
-.atom-core {
+/* BRAIN CONTAINER (Replaces CORE) */
+.brainContainer {
     position: absolute;
-    width: 60px;
-    height: 60px;
-    background-color: var(--accent-color);
-    -webkit-mask-image: url('../images/brain-icon.png');
-    mask-image: url('../images/brain-icon.png');
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    /* z-index removed to allow 3D occlusion */
-    filter: drop-shadow(0 0 5px rgba(225, 173, 1, 1)) drop-shadow(0 0 25px rgba(225, 173, 1, 0.8));
-    border-radius: 0;
-    box-shadow: none;
+    width: 120px;
+    /* Fit inside the 300px rings */
+    height: 120px;
+    z-index: 10;
+    /* Center focal point */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.brainContainer svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    overflow: visible;
+    /* Glow Effect */
+    filter: drop-shadow(0 0 8px rgba(85, 107, 47, 0.8));
+}
+
+.brainPath {
+    stroke-width: 10;
+    fill: none;
+    stroke: var(--secondary-accent);
+    /* Olive Green */
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+.brainRect {
+    fill: var(--secondary-accent);
+}
+
+.brainCircle {
+    fill: var(--secondary-accent);
+}
+
+.brainEllipse {
+    fill: var(--secondary-accent);
+}
+
+/* ANIMATION CLASSES for Brain */
+.animatePaths {
+    animation: drawPath 4s ease-in-out forwards infinite alternate;
+}
+
+.animateRects {
+    animation: fade 4s ease-in-out forwards infinite alternate;
+}
+
+.animateCircles {
+    animation: fade 4s ease-in-out forwards infinite alternate;
+}
+
+@keyframes drawPath {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustment for brain */
+@media (max-width: 768px) {
+    .brainContainer {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 .atom-orbit {
