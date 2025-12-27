@@ -33,51 +33,75 @@ class Particle {
     }
 
     reset() {
-        // Vertical Constraints: Keep away from top (Nav) and bottom (Services)
-        // Use 20% padding top and bottom
-        const verticalPadding = height * 0.2;
-        const availableHeight = height - (verticalPadding * 2);
+        // Funnel Definition
+        // Start (Left): centerX - 350, Height: 200 (±100)
+        // End (Near Core): centerX - 90, Height: 40 (±20)
 
-        // Spawn on the left side, extending almost to the center
-        this.x = Math.random() * (centerX - 50); // Left side up to core with buffer
-        this.y = verticalPadding + Math.random() * availableHeight;
+        const funnelStart = centerX - 350;
+        const funnelEnd = centerX - 90;
+        const funnelLength = funnelEnd - funnelStart;
+
+        // Pick random X within funnel range
+        this.x = funnelStart + Math.random() * funnelLength;
+
+        // Calculate max Y deviation at this X (Linear interpolation)
+        const progress = (this.x - funnelStart) / funnelLength; // 0 to 1
+        const startHalfHeight = 100; // Wide at start
+        const endHalfHeight = 10;   // Narrow at end
+
+        // Funnel shape: wider at start, narrow at end
+        // Using easeIn/Out or linear? Linear is a straight funnel.
+        const currentHalfHeight = startHalfHeight - (progress * (startHalfHeight - endHalfHeight));
+
+        this.y = centerY + (Math.random() - 0.5) * 2 * currentHalfHeight;
 
         this.size = Math.random() * (isMobile ? 2 : 3) + 1;
+        this.color = greenColors[Math.floor(Math.random() * greenColors.length)]; // Use greenColors as 'colors' is undefined
 
-        // Start as Green (Source)
-        this.color = greenColors[Math.floor(Math.random() * greenColors.length)];
-
-        // State: 0=Chaos, 1=Sucking, 2=Sphere
+        // State: 0=Chaos (Funnel Flow), 1=Sucking, 2=Sphere
         this.state = 0;
 
-        // Velocity (Chaos)
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
+        // Velocity: Drift Rightwards (Flowing down funnel)
+        this.vx = 0.2 + Math.random() * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.2;
 
-        // Target (Sphere)
+        // Target (Sphere) variables
         this.targetAnglePhi = Math.random() * Math.PI * 2;
         this.targetAngleTheta = Math.random() * Math.PI;
         this.targetRadius = targetSphereRadius + (Math.random() - 0.5) * 20;
     }
 
     update() {
-        const verticalPadding = height * 0.2;
-
         if (this.state === 0) {
-            // CHAOS: Drift and slowly move towards center
-            this.x += this.vx + 0.2; // Slight right drift
+            // FUNNEL FLOW
+            this.x += this.vx;
             this.y += this.vy;
 
-            // Constrain chaos area vertically
-            if (this.y < verticalPadding || this.y > (height - verticalPadding)) this.vy *= -1;
+            // Recalculate envelope to keep them inside
+            const funnelStart = centerX - 350;
+            const funnelEnd = centerX - 90;
 
-            // Transition to sucking if close to center horizontally (but still left)
-            if (this.x > (centerX - 100) && Math.random() > 0.98) {
-                this.state = 1;
+            // Respawn if passed end
+            if (this.x > funnelEnd) {
+                // Chance to get sucked in if at the narrow tip
+                if (Math.random() > 0.8) {
+                    this.state = 1;
+                } else {
+                    this.reset();
+                    this.x = funnelStart; // Reset to start to keep flow continuous
+                }
             }
 
-            // Randomly respawn if it goes off screen without state change
-            if (this.x > width || this.x < -50) this.reset();
+            // Bounce off funnel walls (Simple check)
+            const funnelLength = funnelEnd - funnelStart;
+            const progress = (this.x - funnelStart) / funnelLength;
+            const startHalfHeight = 100;
+            const endHalfHeight = 10;
+            const currentHalfHeight = startHalfHeight - (progress * (startHalfHeight - endHalfHeight));
+
+            if (this.y < centerY - currentHalfHeight || this.y > centerY + currentHalfHeight) {
+                this.vy *= -1; // Bounce
+            }
 
         } else if (this.state === 1) {
             // SUCKING: Accelerate towards center
