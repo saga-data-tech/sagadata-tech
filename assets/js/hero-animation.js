@@ -43,7 +43,7 @@ class Particle {
 
     reset() {
         // Funnel Definition
-        const funnelStart = centerX - 350;
+        const funnelStart = centerX - 600; // Expanded to left (was 350)
         const funnelEnd = centerX - 90;
         const funnelLength = funnelEnd - funnelStart;
 
@@ -81,7 +81,7 @@ class Particle {
             this.x += this.vx;
             this.y += this.vy;
 
-            const funnelStart = centerX - 350;
+            const funnelStart = centerX - 600;
             const funnelEnd = centerX - 90;
 
             // Respawn if passed end
