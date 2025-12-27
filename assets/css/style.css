@@ -459,138 +459,129 @@ a {
     left: 0;
     transform: translate3d(-70px, -15px, -25px);
     animation-delay: 2.4s;
+}
 
-    @keyframes tesseract-hover {
+/* Services */
 
-        0%,
-        100% {
-            transform: translateY(0);
-        }
+/* Services */
+.services {
+    padding: 6rem 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    border-top: 1px solid var(--border-color);
+}
 
-        50% {
-            transform: translateY(-5px);
-        }
-    }
+.service-card {
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    /* Slightly rounded always */
+}
 
-    /* Services */
-    .services {
-        padding: 6rem 5%;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        border-top: 1px solid var(--border-color);
-    }
+.service-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
 
-    .service-card {
-        padding: 2rem;
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        /* Slightly rounded always */
-    }
+/* Philosophy */
+.philosophy {
+    padding: 6rem 5%;
+    background-color: var(--border-color);
+    /* Subtle contrast */
+    text-align: center;
+}
 
-    .service-card h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
+.philosophy .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-    /* Philosophy */
-    .philosophy {
-        padding: 6rem 5%;
-        background-color: var(--border-color);
-        /* Subtle contrast */
+.philosophy h3 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.philosophy p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--heading-font);
+}
+
+/* Footer */
+footer {
+    padding: 3rem 5%;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
         text-align: center;
+        padding: 4rem 5%;
     }
 
-    .philosophy .content-wrapper {
-        max-width: 800px;
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .lead {
         margin: 0 auto;
     }
 
-    .philosophy h3 {
-        margin-bottom: 2rem;
-        font-size: 2rem;
+    /* Mobile Navigation */
+    .site-header {
+        padding: 1.5rem 5%;
     }
 
-    .philosophy p {
+    .desktop-text {
+        display: none;
+    }
+
+    .mobile-text {
+        display: inline-block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 0.5rem;
+    }
+
+    .main-nav {
+        gap: 1rem;
+    }
+
+    /* When dropdown is open, swap initial for full text */
+    .dropdown.active .nav-link .mobile-text {
+        display: none;
+    }
+
+    .dropdown.active .nav-link .desktop-text {
+        display: inline-block;
         font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-        font-family: var(--heading-font);
+        font-weight: bold;
+        padding: 0.5rem;
     }
 
-    /* Footer */
-    footer {
-        padding: 3rem 5%;
-        border-top: 1px solid var(--border-color);
-        font-size: 0.9rem;
-        opacity: 0.7;
+    /* Disable hover for mobile */
+    .dropdown:hover .dropdown-content {
+        display: none;
     }
 
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
+    /* Enable click toggle */
+    .dropdown.active .dropdown-content {
+        display: block;
+        position: absolute;
+        width: 200px;
+        right: 0;
+        left: auto;
+        top: 100%;
     }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .hero {
-            grid-template-columns: 1fr;
-            text-align: center;
-            padding: 4rem 5%;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-        }
-
-        .hero .lead {
-            margin: 0 auto;
-        }
-
-        /* Mobile Navigation */
-        .site-header {
-            padding: 1.5rem 5%;
-        }
-
-        .desktop-text {
-            display: none;
-        }
-
-        .mobile-text {
-            display: inline-block;
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 0.5rem;
-        }
-
-        .main-nav {
-            gap: 1rem;
-        }
-
-        /* When dropdown is open, swap initial for full text */
-        .dropdown.active .nav-link .mobile-text {
-            display: none;
-        }
-
-        .dropdown.active .nav-link .desktop-text {
-            display: inline-block;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 0.5rem;
-        }
-
-        /* Disable hover for mobile */
-        .dropdown:hover .dropdown-content {
-            display: none;
-        }
-
-        /* Enable click toggle */
-        .dropdown.active .dropdown-content {
-            display: block;
-            position: absolute;
-            width: 200px;
-            right: 0;
-            left: auto;
-            top: 100%;
-        }
-    }
+}
