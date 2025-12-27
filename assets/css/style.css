@@ -251,9 +251,9 @@ a {
 
 .atom-container {
     position: relative;
-    width: 180px;
-    /* Scaled down from 300px */
-    height: 180px;
+    width: 270px;
+    /* Scaled up 1.5x */
+    height: 270px;
     /* Scaled down from 300px */
     display: flex;
     justify-content: center;
@@ -316,8 +316,8 @@ a {
 /* BRAIN CONTAINER (Replaces CORE) */
 .brainContainer {
     position: absolute;
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     z-index: 10;
     display: flex;
     justify-content: center;

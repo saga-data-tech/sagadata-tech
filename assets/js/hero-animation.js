@@ -46,9 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Particle Configuration
     const particleCount = 200; // Enough density
-    const maxDist = 350; // Start distance (px)
-    const ringDist = 140; // Ring Perimeter (Color Change)
-    const brainDist = 65; // Brain Perimeter (Vanish)
+    const maxDist = 525; // Scaled up 1.5x
+    const ringDist = 210; // Scaled up 1.5x
+    const brainDist = 100; // Scaled up 1.5x
+
 
     // Colors
     const oliveColor = '#556B2F';
