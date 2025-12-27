@@ -331,12 +331,163 @@ a {
 }
 
 @keyframes orbit-3-spin {
-    0% {
-        transform: rotateX(240deg) rotateY(0deg);
-    }
-
     100% {
         transform: rotateX(600deg) rotateY(360deg);
+    }
+}
+
+/* Waveform Extension */
+:root {
+    --charcoal-green: #2D3A2D;
+}
+
+.waveform-extension {
+    position: absolute;
+    left: 200px;
+    /* Offset from center (container is 180px wide). 200px places it nicely to the right */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Spacing between bars and endpoint */
+    z-index: 0;
+    /* Behind or inline with atom */
+}
+
+.data-stream {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 60px;
+    /* Constrain height */
+}
+
+.data-bar {
+    width: 4px;
+    background-color: var(--charcoal-green);
+    border-radius: 2px;
+    animation: waveform-pulse 1.2s infinite ease-in-out;
+    height: 10px;
+    /* Start height */
+}
+
+/* Alternate colors and animations */
+.data-bar:nth-child(odd) {
+    background-color: var(--charcoal-green);
+    animation-duration: 0.8s;
+}
+
+.data-bar:nth-child(even) {
+    background-color: var(--accent-color);
+    animation-duration: 1.1s;
+    opacity: 0.8;
+}
+
+.data-bar:nth-child(1) {
+    height: 15px;
+    animation-delay: 0.0s;
+}
+
+.data-bar:nth-child(2) {
+    height: 25px;
+    animation-delay: 0.1s;
+}
+
+.data-bar:nth-child(3) {
+    height: 40px;
+    animation-delay: 0.2s;
+}
+
+.data-bar:nth-child(4) {
+    height: 30px;
+    animation-delay: 0.3s;
+}
+
+.data-bar:nth-child(5) {
+    height: 20px;
+    animation-delay: 0.4s;
+}
+
+.data-bar:nth-child(6) {
+    height: 45px;
+    animation-delay: 0.2s;
+}
+
+.data-bar:nth-child(7) {
+    height: 25px;
+    animation-delay: 0.1s;
+}
+
+.data-bar:nth-child(8) {
+    height: 35px;
+    animation-delay: 0.5s;
+}
+
+.data-bar:nth-child(9) {
+    height: 20px;
+    animation-delay: 0.3s;
+}
+
+.data-bar:nth-child(10) {
+    height: 10px;
+    animation-delay: 0.0s;
+}
+
+.data-bar:nth-child(11) {
+    height: 15px;
+    animation-delay: 0.0s;
+}
+
+.data-bar:nth-child(12) {
+    height: 8px;
+    animation-delay: 0.0s;
+}
+
+
+@keyframes waveform-pulse {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.8);
+    }
+}
+
+.waveform-endpoint {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.endpoint-core {
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+    animation: endpoint-pulse 2s infinite ease-in-out;
+}
+
+@keyframes endpoint-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 0.8;
+        box-shadow: 0 0 15px var(--accent-color), 0 0 30px var(--accent-color);
     }
 }
 
