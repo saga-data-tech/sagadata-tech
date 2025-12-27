@@ -1,159 +1,150 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Configuration
-    const particleCount = 500;
-    const maxDistance = 600; // px spread
 
-    // Select Container
+    // ==========================================
+    // 1. BRAIN ANIMATION (SVG INJECTION)
+    // ==========================================
+    function neuralize() {
+        const brainContainer = document.querySelector(".brainContainer");
+        // svg variable is GLOBAL from brain-svg.js
+        if (brainContainer && typeof svg !== 'undefined') {
+            brainContainer.innerHTML = svg;
+            // The CSS (.brainContainer svg) handles the "glow" and "stroke" colors.
+            // The CSS (g#a path) handles the "waves" and "pulse" animations if applied.
+        } else {
+            console.error("Brain Container or SVG missing.");
+        }
+    }
+    neuralize();
+
+    // ==========================================
+    // 2. PARTICLE SYSTEM (Mustard/Olive Flow)
+    // ==========================================
     const heroVisual = document.querySelector('.hero-visual');
     if (!heroVisual) return;
 
-    // cleanup
+    // Cleanup existing
     const oldCanvas = document.getElementById('hero-canvas');
     if (oldCanvas) oldCanvas.remove();
-    let container = document.querySelector('.particle-container');
-    if (container) container.remove();
+    const existingContainer = document.querySelector('.particle-container');
+    if (existingContainer) existingContainer.remove();
 
-    // Create Container
-    container = document.createElement('div');
+    // Create container
+    const container = document.createElement('div');
     container.classList.add('particle-container');
-    heroVisual.appendChild(container);
+    heroVisual.appendChild(container); // Append to hero-visual to be behind/around the brain
 
-    // Style Container to be centered
+    // Center the container
     Object.assign(container.style, {
         position: 'absolute',
         top: '50%',
         left: '50%',
         width: '0',
         height: '0',
-        zIndex: '0', // Behind the atom
-        animation: 'rot 60s linear infinite' // Slow rotation of the whole cloud
+        zIndex: 5, // Below Brain (z-index 10) but visible
+        overflow: 'visible'
     });
 
-    // Generate Dynamic CSS - PERFORMANCE OPTIMIZED
-    let styleSheet = document.getElementById('particle-styles');
-    if (styleSheet) styleSheet.remove();
-    styleSheet = document.createElement('style');
-    styleSheet.id = 'particle-styles';
+    // Particle Configuration
+    const particleCount = 200; // Enough density
+    const maxDist = 350; // Start distance (px)
+    const ringDist = 140; // Ring Perimeter (Color Change)
+    const brainDist = 65; // Brain Perimeter (Vanish)
 
-    // Increased base size to 3px (visible start), no box-shadow for performance
-    let css = `
+    // Colors
+    const oliveColor = '#556B2F';
+    const mustardColor = '#E1AD01';
+
+    let styleContent = `
         .particle-container div {
             position: absolute;
-            height: 3px;
             width: 3px;
-            margin: -1.5px; 
+            height: 3px;
             border-radius: 50%;
+            background-color: ${oliveColor};
             opacity: 0;
-            will-change: transform, opacity;
-        }
-        @keyframes rot {
-            100% { transform: rotate(360deg); }
+            will-change: transform, opacity, background-color;
         }
     `;
 
-    for (let i = 1; i <= particleCount; i++) {
-        const randomSignX = Math.random() > 0.5 ? 1 : -1;
-        const randomSignY = Math.random() > 0.5 ? 1 : -1;
-        const tx = Math.floor(Math.random() * maxDistance) * randomSignX;
-        const ty = Math.floor(Math.random() * maxDistance) * randomSignY;
+    for (let i = 0; i < particleCount; i++) {
+        // Random Angle
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 2 + Math.random() * 3; // 2s to 5s duration
+        const delay = Math.random() * -5; // Negative delay for instant start
 
-        const animName = `p_anim_${i}`;
-        const delay = (i / particleCount) * -4 + 's';
-        const duration = (2 + Math.random() * 2) + 's';
+        // Start Position (Far away)
+        const sx = Math.cos(angle) * maxDist;
+        const sy = Math.sin(angle) * maxDist;
 
-        // Pick an Olive shade for the start/outer state
-        const oliveShades = ['#556B2F', '#6B8E23', '#4E3B31'];
-        const startColor = oliveShades[Math.floor(Math.random() * oliveShades.length)];
-        const targetColor = '#E1AD01'; // Mustard
+        // End Position (Center - theoretical)
+        const ex = 0;
+        const ey = 0;
 
-        // Add particle DIV
+        // Keyframe Name
+        const animName = `ptcl${i}`;
+
+        // Add Div
         const p = document.createElement('div');
+        // Add random slight offsets to start to avoid perfect circles
+        p.style.top = (Math.random() * 10 - 5) + 'px';
+        p.style.left = (Math.random() * 10 - 5) + 'px';
+        p.style.animation = `${animName} ${speed}s linear infinite`;
+        p.style.animationDelay = `${delay}s`;
         container.appendChild(p);
 
-        // Keyframe Logic (Reverse Playback: 100% -> 0%):
-        // 100% (Outer Start): Scale 1.2, Opacity 0 (Fade in from void)
-        // 80% (Outer Visible): Scale 1, Opacity 0.8, Color Olive
-        // 20% (Outside Ring ~120px): Color Olive (Holding color)
-        // 15% (Ring Boundary ~90px): Color SWAP to Mustard (Data Upgrade) + Shrink starts
-        // 0% (Center End): Scale 0, Opacity 0 (Disappear into brain), Color Mustard
+        // Calculate Percentages for breakpoints
+        // Total Distance = maxDist (approx 350)
+        // Ring Distance = 140 -> approx 60% of travel (from outside in)
+        // Brain Distance = 70 -> approx 80% of travel
+        // Actually, traveling FROM 350 TO 0.
+        // 350 -> 100% (Start)
+        // 140 -> 40% distance remaining (so 60% progress)
+        // 70 -> 20% distance remaining (so 80% progress)
 
-        css += `
-            .particle-container div:nth-child(${i}) {
-                background-color: ${startColor}; 
-                animation: ${animName} ${duration} ease-in infinite reverse;
-                animation-delay: ${delay};
-            }
+        styleContent += `
             @keyframes ${animName} {
-                0% { transform: translate(0,0) scale(0); opacity: 0; background-color: ${targetColor}; }
-                15% { transform: translate(${tx * 0.15}px, ${ty * 0.15}px) scale(0.6); background-color: ${targetColor}; }
-                20% { transform: translate(${tx * 0.20}px, ${ty * 0.20}px) scale(0.8); background-color: ${startColor}; }
-                80% { opacity: 0.8; }
-                100% { transform: translate(${tx}px, ${ty}px) scale(1.2); opacity: 0; background-color: ${startColor}; }
+                0% {
+                    transform: translate(${sx}px, ${sy}px);
+                    opacity: 0;
+                    background-color: ${oliveColor};
+                }
+                10% {
+                    opacity: 0.8;
+                }
+                55% {
+                    /* Approaching Ring Boundary */
+                    background-color: ${oliveColor};
+                    transform: translate(${sx * 0.45}px, ${sy * 0.45}px);
+                }
+                60% {
+                    /* Crossed Ring Boundary - Turn Mustard */
+                    background-color: ${mustardColor};
+                    transform: translate(${sx * 0.40}px, ${sy * 0.40}px);
+                }
+                80% {
+                    /* Approaching Brain - Still Visible */
+                    opacity: 1;
+                    transform: translate(${sx * 0.20}px, ${sy * 0.20}px);
+                }
+                85% {
+                    /* Hit Brain Boundary - Vanish */
+                    opacity: 0;
+                    transform: translate(${sx * 0.15}px, ${sy * 0.15}px);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate(0, 0);
+                }
             }
         `;
     }
 
-    styleSheet.innerText = css;
-    document.head.appendChild(styleSheet);
-
-
-    // ==========================================
-    // BRAIN ANIMATION LOGIC
-    // ==========================================
-
-    function neuralize() {
-        const brainContainer = document.querySelector(".brainContainer");
-        // svg variable is GLOBAL from brain-svg.js
-        if (brainContainer && typeof svg !== 'undefined') {
-            brainContainer.innerHTML = svg;
-            requestAnimationFrame(animateSVGs);
-            addClass("path", "animatePaths");
-            addClass("rect", "animateRects");
-            addClass("circle", "animateCircles");
-            addClass("ellipse", "animateCircles");
-        }
-    }
-
-    function addClass(query, theClass) {
-        const brainContainer = document.querySelector(".brainContainer");
-        if (brainContainer) {
-            var x = brainContainer.querySelectorAll(query);
-            for (var i = 0; i < x.length; i++) {
-                x[i].classList.add(theClass);
-            }
-        }
-    }
-
-    function randNum(from, to) {
-        return Math.floor(Math.random() * (to - from + 1) + from);
-    }
-
-    function animateSVGs() {
-        const brainContainer = document.querySelector(".brainContainer");
-        if (!brainContainer) return;
-
-        var allPaths = brainContainer.querySelectorAll("path");
-        for (var i = 0; i < allPaths.length; i++) {
-            var lineLength = allPaths[i].getTotalLength();
-            allPaths[i].style.strokeDasharray = lineLength;
-            allPaths[i].style.strokeDashoffset = lineLength;
-            allPaths[i].style.animationDelay = randNum(-50, 50) / 10 + "s";
-        }
-        var allRects = brainContainer.querySelectorAll("rect");
-        for (var i = 0; i < allRects.length; i++) {
-            allRects[i].style.animationDelay = randNum(-50, 50) / 10 + "s";
-        }
-        var allCircles = brainContainer.querySelectorAll("circle");
-        for (var i = 0; i < allCircles.length; i++) {
-            allCircles[i].style.animationDelay = randNum(-50, 50) / 10 + "s";
-        }
-        var allEllipses = brainContainer.querySelectorAll("ellipse");
-        for (var i = 0; i < allEllipses.length; i++) {
-            allEllipses[i].style.animationDelay = randNum(-50, 50) / 10 + "s";
-        }
-    }
-
-    // Trigger Brain Animation
-    neuralize();
+    // Inject Styles
+    let styleTag = document.getElementById('particle-styles');
+    if (styleTag) styleTag.remove();
+    styleTag = document.createElement('style');
+    styleTag.id = 'particle-styles';
+    styleTag.textContent = styleContent;
+    document.head.appendChild(styleTag);
 
 });
