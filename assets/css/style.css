@@ -482,19 +482,27 @@ a {
     animation-delay: 3.0s;
 }
 
+/* Update animation to flow across the wider container */
 @keyframes source-flow-3d {
     0% {
-        transform: translate3d(-50px, 0, 0) scale(0.5);
+        transform: translate3d(-150px, 0, 0) scale(0.5);
         opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
     }
 
     50% {
         transform: translate3d(0, 0, 0) scale(1.2);
+    }
+
+    80% {
         opacity: 1;
     }
 
     100% {
-        transform: translate3d(50px, 0, 0) scale(0.2);
+        transform: translate3d(150px, 0, 0) scale(0.2);
         opacity: 0;
     }
 }
@@ -506,19 +514,20 @@ a {
 
 .waveform-extension {
     position: absolute;
-    left: 300px;
-    /* Extended from 200px */
+    left: 170px;
+    /* Moved closer to overlap/connect with atom (Atom is 180px wide) */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0;
+    /* Remove gap */
     z-index: 0;
 }
 
 .waveform-svg-container {
-    width: 450px;
-    /* Wider wave */
+    width: 350px;
+    /* Good length */
     height: 60px;
     overflow: visible;
 }
