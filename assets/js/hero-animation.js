@@ -13,11 +13,11 @@ let isMobile = window.innerWidth <= 768;
 function resize() {
     width = canvas.width = canvas.parentElement.offsetWidth;
     height = canvas.height = canvas.parentElement.offsetHeight;
-    
+
     // Calculate center based on the atom container position relative to the canvas
     const atomRect = atomContainer.getBoundingClientRect();
     const canvasRect = canvas.getBoundingClientRect();
-    
+
     centerX = (atomRect.left + atomRect.width / 2) - canvasRect.left;
     centerY = (atomRect.top + atomRect.height / 2) - canvasRect.top;
 
@@ -31,15 +31,15 @@ class Particle {
     }
 
     reset() {
-        // Spawn on the left side
-        this.x = Math.random() * (width * 0.3); // Left 30%
+        // Spawn on the left side, extending almost to the center
+        this.x = Math.random() * (centerX - 50); // Left side up to core with buffer
         this.y = Math.random() * height;
         this.size = Math.random() * (isMobile ? 2 : 3) + 1;
         this.color = colors[Math.floor(Math.random() * colors.length)];
-        
+
         // State: 0=Chaos, 1=Sucking, 2=Sphere
-        this.state = 0; 
-        
+        this.state = 0;
+
         // Velocity (Chaos)
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
@@ -60,10 +60,10 @@ class Particle {
             if (this.y < 0 || this.y > height) this.vy *= -1;
 
             // Transition to sucking if close to center horizontally (but still left)
-            if (this.x > width * 0.3 && Math.random() > 0.98) {
+            if (this.x > (centerX - 100) && Math.random() > 0.98) {
                 this.state = 1;
             }
-            
+
             // Randomly respawn if it goes off screen without state change
             if (this.x > width || this.x < -50) this.reset();
 
@@ -71,8 +71,8 @@ class Particle {
             // SUCKING: Accelerate towards center
             const dx = centerX - this.x;
             const dy = centerY - this.y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
             const speed = 5;
             this.x += (dx / dist) * speed;
             this.y += (dy / dist) * speed;
@@ -93,7 +93,7 @@ class Particle {
             // SPHERE FORMATION
             // Calculate target position on sphere (positioned to the right)
             // We project 3D sphere coords onto 2D plane + offset
-            
+
             // Rotate the entire sphere slowly
             const rotationSpeed = 0.005;
             this.targetAnglePhi += rotationSpeed;
@@ -108,7 +108,7 @@ class Particle {
             // Move towards target
             const dx = targetX - this.x;
             const dy = targetY - this.y;
-            
+
             this.x += dx * 0.05;
             this.y += dy * 0.05;
 
@@ -136,7 +136,7 @@ function init() {
 
 function animate() {
     ctx.clearRect(0, 0, width, height);
-    
+
     particles.forEach(p => {
         p.update();
         p.draw();
